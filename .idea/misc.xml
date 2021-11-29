@@ -3,13 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.18958333333333333" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_storefront_24.xml" value="0.18958333333333333" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_registration_form.xml" value="0.18177083333333333" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_sign_in_register.xml" value="0.25" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_interface_tab.xml" value="0.2635416666666667" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_google_map.xml" value="0.2635416666666667" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.22" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_maps.xml" value="0.2484375" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.25" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_sign_in_register.xml" value="0.33" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_transaction_record.xml" value="0.2" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_transaction_records.xml" value="0.22" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_check_your_location.xml" value="0.2484375" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_customer_interface_tab.xml" value="0.2635416666666667" />
+        <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order_to_gas_i_t.xml" value="0.22" />
       </map>
     </option>
   </component>

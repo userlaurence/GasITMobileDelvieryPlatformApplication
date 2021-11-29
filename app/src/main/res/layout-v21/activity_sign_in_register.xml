@@ -18,7 +18,7 @@
         android:shadowDy="5"
         android:shadowRadius="5"
         android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="@string/usernameLbl"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textAppearance="@android:style/TextAppearance.Material.Body2"
             android:textSize="20sp" />
 
         <EditText
@@ -57,7 +57,7 @@
             android:hint="@string/usernameHint"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@android:style/TextAppearance.Material.Small"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
 
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="@string/passwordLbl"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textAppearance="@android:style/TextAppearance.Material.Body2"
             android:textSize="18sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +99,7 @@
                 android:hint="@string/passwordHint"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textAppearance="@android:style/TextAppearance.Material.Small"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

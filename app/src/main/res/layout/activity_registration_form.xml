@@ -289,6 +289,7 @@
             android:hint="@string/ageHint"
             android:importantForAutofill="no"
             android:inputType="number"
+            android:maxLength="2"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
 
@@ -400,10 +401,10 @@
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:layout_marginEnd="10sp"
+            android:layout_marginRight="10sp"
             android:backgroundTint="#3D68D6"
             android:text="@string/cancelBtn"
             tools:ignore="ButtonStyle"
-            android:layout_marginRight="10sp"
             tools:targetApi="lollipop" />
 
         <Button
@@ -411,11 +412,13 @@
             android:layout_width="150sp"
             android:layout_height="50sp"
             android:layout_marginStart="10sp"
+            android:layout_marginLeft="10sp"
             android:backgroundTint="#3D68D6"
+            android:maxLength="2"
             android:text="@string/registerBtn"
             tools:ignore="ButtonStyle"
-            android:layout_marginLeft="10sp"
             tools:targetApi="lollipop" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

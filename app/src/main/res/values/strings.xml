@@ -58,4 +58,32 @@
     <string name="pcsHeader">Pcs</string>
     <string name="dateHeader">Date Purchase</string>
     <string name="registration_title">GasIT Register Account</string>
+    <string name="title_activity_customer_interface_tab">CustomerInterfaceTab</string>
+    <string name="tab_text_1">Order to GasIT</string>
+    <string name="tab_text_2">Check Your Location</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="customer_interface_tabs_available">Available Tabs</string>
+    <string name="customer_interface_view_pager_available">Pager Available</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_price">Item Price</string>
+    <string name="item_availability">Item Availability</string>
+    <string name="order_btn">Order</string>
+    <string name="product_image">Product Image</string>
+    <string name="item_Availability03">7 Remaining</string>
+    <string name="item_Price03">P890.00</string>
+    <string name="item_Name03">Solane (11kgs.)</string>
+    <string name="item_Availability02">Out of Stock</string>
+    <string name="item_Price02">P850.00</string>
+    <string name="item_Name02">Petron Gasul (11kgs.)</string>
+    <string name="item_Availability01">28 Remaining</string>
+    <string name="item_Price01">P780.00</string>
+    <string name="item_Name01">Island Gas (11kgs.)</string>
+    <string name="item_Availability05">13 Remaining</string>
+    <string name="item_Price05">P780.00</string>
+    <string name="item_Name05">Fiesta Gas (11kgs.)</string>
+    <string name="item_Name04">Brent Gas (11kgs.)</string>
+    <string name="item_Availability04">83 Remaining</string>
+    <string name="item_Price04">P650.00</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

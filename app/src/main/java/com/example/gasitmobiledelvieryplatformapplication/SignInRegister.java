@@ -9,16 +9,21 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gasitmobiledelvieryplatformapplication.R.id;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInRegister extends AppCompatActivity {
 
-    /*public EditText signUsername = findViewById(id.signUsername);
-    public EditText signPassword = findViewById(id.signPassword);*/
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_register);
+
+        EditText signUsername = findViewById(id.signUsername);
+        EditText signPassword = findViewById(id.signPassword);
 
         Button signRegister = findViewById(id.signRegisterBtn);
         signRegister.setOnClickListener(v -> openregisterScreen());
@@ -36,6 +41,17 @@ public class SignInRegister extends AppCompatActivity {
     public void openloginScreen() {
         //insert here for verification of account in the database...
         //conditional statements...
+
+        /*
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("");
+        //What reference from the database you want to get (like users accounts)...
+
+        reference.setValue("");
+        */
+
+        Intent logInAccess = new Intent(this, CustomerInterfaceTab.class);
+        startActivity(logInAccess);
     }
 
     public void openfacebookScreen() {

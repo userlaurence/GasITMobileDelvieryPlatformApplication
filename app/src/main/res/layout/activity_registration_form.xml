@@ -414,7 +414,6 @@
             android:layout_marginStart="10sp"
             android:layout_marginLeft="10sp"
             android:backgroundTint="#3D68D6"
-            android:maxLength="2"
             android:text="@string/registerBtn"
             tools:ignore="ButtonStyle"
             tools:targetApi="lollipop" />

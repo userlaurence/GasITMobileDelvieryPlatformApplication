@@ -40,12 +40,6 @@
         <activity
             android:name=".RegistrationForm"
             android:exported="true" />
-        <activity
-            android:name=".TransactionRecord"
-            android:exported="true" />
-        <activity
-            android:name=".TransactionRecords"
-            android:exported="true" />
         <activity android:name=".SignInRegister" />
         <activity
             android:name=".MainActivity"

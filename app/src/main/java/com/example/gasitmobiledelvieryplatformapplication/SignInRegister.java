@@ -50,7 +50,7 @@ public class SignInRegister extends AppCompatActivity {
         reference.setValue("");
         */
 
-        Intent logInAccess = new Intent(this, CustomerInterfaceTab.class);
+        Intent logInAccess = new Intent(this, CustomerMainActivity.class);
         startActivity(logInAccess);
     }
 

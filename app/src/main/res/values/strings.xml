@@ -39,6 +39,14 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Navigation Text -->
+    <string name="nav_home">Home</string>
+    <string name="nav_gas">Order</string>
+    <string name="nav_map">Location</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_warehouse">Warehouse</string>
+    <string name="nav_sales">Sales</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -86,4 +94,8 @@
     <string name="item_Availability04">83 Remaining</string>
     <string name="item_Price04">P650.00</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_customer_main">CustomerMainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

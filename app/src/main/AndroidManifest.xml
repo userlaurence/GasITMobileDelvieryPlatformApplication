@@ -19,6 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GasITMobileDelvieryPlatformApplication.NoActionBar">
+
+        <activity
+            android:name=".CustomerMainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_customer_main" />
+
         <activity
             android:name=".GoogleMap"
             android:exported="true" />
@@ -35,14 +41,14 @@
             android:value="@string/map_key" />
 
         <activity
-            android:name=".CustomerInterfaceTab"
-            android:exported="true" />
-        <activity
             android:name=".RegistrationForm"
             android:exported="true" />
+
         <activity android:name=".SignInRegister" />
+
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             tools:ignore="IntentFilterExportedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

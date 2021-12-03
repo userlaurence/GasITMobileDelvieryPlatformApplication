@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navHome"
+        android:icon="@drawable/ic_baseline_storefront_24"
+        android:title="@string/nav_home" />
+
+    <item
+        android:id="@+id/navOrder"
+        android:icon="@drawable/ic_baseline_fireplace_24"
+        android:title="@string/nav_orders" />
+
+    <item
+        android:id="@+id/navWarehouse"
+        android:icon="@drawable/ic_baseline_business_24"
+        android:title="@string/nav_warehouse" />
+
+    <item
+        android:id="@+id/navSales"
+        android:icon="@drawable/ic_baseline_assessment_24"
+        android:title="@string/nav_sales" />
+</menu>

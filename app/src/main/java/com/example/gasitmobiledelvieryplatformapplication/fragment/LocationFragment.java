@@ -1,17 +1,13 @@
-package com.example.gasitmobiledelvieryplatformapplication.fragments;
+package com.example.gasitmobiledelvieryplatformapplication.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.gasitmobiledelvieryplatformapplication.R;
-import com.example.gasitmobiledelvieryplatformapplication.RegistrationForm;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,13 +15,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class CheckYourLocation extends Fragment {
+public class LocationFragment extends Fragment {
+    public LocationFragment() {
+        super(R.layout.fragment_location);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Initialize View...
-        View view = inflater.inflate(R.layout.fragment_check_your_location, container, false);
+        View view = inflater.inflate(R.layout.fragment_location, container, false);
 
         //Initialize Map Fragment...
         SupportMapFragment supportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);

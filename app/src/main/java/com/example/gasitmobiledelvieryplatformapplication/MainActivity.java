@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
         //Kotlin for hiding the Action Bar
         //supportActionBar?.hide()
 
-        Intent intent = new Intent(MainActivity.this, SignInRegister.class);
+        // TODO: Uncomment SignIn after supporting FireAuth.
+        //Intent intent = new Intent(MainActivity.this, SignInRegister.class);
+        Intent intent = new Intent(MainActivity.this, CustomerMainActivity.class);
 
         //Incrementing Timer for Splash Screen
         //Splash Screen (3secs.)

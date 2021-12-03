@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="30dp"
-        tools:context=".fragments.OrderToGasIT">
+        tools:context=".fragment.OrderFragment">
 
         <TextView
             android:id="@+id/itemName01"

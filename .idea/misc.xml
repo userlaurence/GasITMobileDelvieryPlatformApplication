@@ -27,13 +27,18 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/font/adamina.xml" value="0.234375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_sign_in_register.xml" value="0.22" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/dialog_simple.xml" value="0.5" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_create_gasoline.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_interface_tab.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_main.xml" value="0.5" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_google_map.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/card_view_gasoline.xml" value="0.5" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_check_your_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order.xml" value="0.2962962962962963" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order_to_gas_i_t.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
@@ -42,7 +47,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

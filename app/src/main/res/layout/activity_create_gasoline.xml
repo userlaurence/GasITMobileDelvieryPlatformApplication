@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/fragment_padding">
+
+    <ImageButton
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:contentDescription="@string/go_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createGasolineTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_item"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createGasolineTextView" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gasolineImageView"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:contentDescription="@string/gasoline_image"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/gasolineNameEditText"
+                app:srcCompat="@drawable/ic_baseline_fireplace_24" />
+
+            <TextView
+                android:id="@+id/gasolineNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gasoline_name_label"
+                android:textSize="@dimen/input_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/gasolineNameEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gasolineNameEditText" />
+
+            <EditText
+                android:id="@+id/gasolineNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:ems="10"
+                android:autofillHints="@string/gasoline_name_hint"
+                android:hint="@string/gasoline_name_label"
+                android:textColorHint="@color/text_input_hint"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/gasolineImageView" />
+
+            <TextView
+                android:id="@+id/gasolineWeightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gasoline_weight_label"
+                android:textSize="@dimen/input_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/gasolineWeightEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gasolineWeightEditText" />
+
+            <EditText
+                android:id="@+id/gasolineWeightEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:ems="10"
+                android:autofillHints="@string/gasoline_weight_hint"
+                android:hint="@string/gasoline_weight_hint"
+                android:textColorHint="@color/text_input_hint"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/gasolineNameEditText" />
+
+            <TextView
+                android:id="@+id/gasolineStocksTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gasoline_stock_label"
+                android:textSize="@dimen/input_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/gasolineStocksEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gasolineStocksEditText" />
+
+            <EditText
+                android:id="@+id/gasolineStocksEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:ems="10"
+                android:autofillHints="@string/gasoline_stock_hint"
+                android:hint="@string/gasoline_stock_hint"
+                android:textColorHint="@color/text_input_hint"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/gasolineWeightEditText" />
+
+            <TextView
+                android:id="@+id/gasolinePriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gasoline_price_label"
+                android:textSize="@dimen/input_text_size"
+                app:layout_constraintBaseline_toBaselineOf="@id/gasolinePriceEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gasolinePriceEditText" />
+
+            <EditText
+                android:id="@+id/gasolinePriceEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:ems="10"
+                android:autofillHints="@string/gasoline_price_hint"
+                android:hint="@string/gasoline_price_hint"
+                android:textColorHint="@color/text_input_hint"
+                android:inputType="numberDecimal"
+                android:lines="2"
+                android:maxLines="5"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/gasolineStocksEditText" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.28" />
+
+            <Button
+                android:id="@+id/createGasolineButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/green"
+                android:text="@string/create_item"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cancelButton"
+                app:layout_constraintTop_toBottomOf="@+id/gasolinePriceEditText" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/red"
+                android:text="@string/cancel"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintEnd_toStartOf="@+id/createGasolineButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gasolinePriceEditText" />
+
+            <Button
+                android:id="@+id/deleteGasolineButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/input_field_margin"
+                android:background="@color/red"
+                android:visibility="gone"
+                android:text="@string/delete_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createGasolineButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO: Uncomment SignIn after supporting FireAuth.
         //Intent intent = new Intent(MainActivity.this, SignInRegister.class);
-        Intent intent = new Intent(MainActivity.this, CustomerMainActivity.class);
+        Intent intent = new Intent(MainActivity.this, RetailerMainActivity.class);
 
         //Incrementing Timer for Splash Screen
         //Splash Screen (3secs.)

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    android:layout_marginVertical="6dp"
+    android:layout_marginHorizontal="10dp"
+    app:cardCornerRadius="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemComponentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/appbar_padding">
+
+        <ImageView
+            android:id="@+id/gasolineImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="5dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/gasoline_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/splash_screen_icon" />
+
+        <TextView
+            android:id="@+id/gasolineNameAndWeightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/gasoline_name_and_weight"
+            android:textColorLink="#FFFFFF"
+            android:textSize="@dimen/card_view_title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/gasolineImageView"
+            app:layout_constraintBottom_toTopOf="@+id/gasolinePriceTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="126dp" />
+
+        <TextView
+            android:id="@+id/gasolinePriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gasoline_price"
+            android:textColorLink="#FFFFFF"
+            android:textSize="@dimen/card_view_subtitle_text_size"
+            app:layout_constraintStart_toStartOf="@id/gasolineNameAndWeightTextView"
+            app:layout_constraintBottom_toTopOf="@+id/gasolineStockTextView"
+            app:layout_constraintTop_toBottomOf="@+id/gasolineNameAndWeightTextView"
+            tools:layout_editor_absoluteX="126dp" />
+
+        <TextView
+            android:id="@+id/gasolineStockTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gasoline_stock"
+            android:textColorLink="#FFFFFF"
+            android:textSize="@dimen/card_view_information_text_size"
+            app:layout_constraintStart_toStartOf="@id/gasolineNameAndWeightTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gasolinePriceTextView"
+            tools:layout_editor_absoluteX="126dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

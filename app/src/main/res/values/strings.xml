@@ -69,12 +69,37 @@
     <string name="title_activity_customer_interface_tab">CustomerInterfaceTab</string>
     <string name="tab_text_1">Order to GasIT</string>
     <string name="tab_text_2">Check Your Location</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="customer_interface_tabs_available">Available Tabs</string>
-    <string name="customer_interface_view_pager_available">Pager Available</string>
-    <string name="item_name">Item Name</string>
-    <string name="item_price">Item Price</string>
+
+    <!-- Gasoline Card View -->
+    <string name="gasoline_image">Gasoline Image</string>
+    <string name="gasoline_name_and_weight">Name (12 kgs.)</string>
+    <string name="gasoline_price">₱%d</string>
+    <string name="gasoline_stock">123 Remaining</string>
+    <string name="gasoline_out_of_stock">Out of Stock</string>
+
+    <!-- Gasoline Create Gasoline Label -->
+    <string name="gasoline_name_label">Name</string>
+    <string name="gasoline_name_hint">Liquefied Petroleum Gas</string>
+    <string name="gasoline_weight_label">Weight (in kg)</string>
+    <string name="gasoline_weight_hint">10.1 or 10</string>
+    <string name="gasoline_price_label">Price ₱</string>
+    <string name="gasoline_price_hint">500 or 400.50</string>
+    <string name="gasoline_stock_label">Stocks</string>
+    <string name="gasoline_stock_hint">50</string>
+    <string name="gasoline_create">Create Gasoline</string>
+    <string name="gasoline_cancel_create">
+        Are you sure you want to cancel creating gasoline and go back to home?
+    </string>
+
+    <!-- Button Text -->
+    <string name="go_back">Go Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="create_item">Create %s</string>
+    <string name="edit_item">Edit %s</string>
+    <string name="update_item">Update %s</string>
+    <string name="delete_item">Delete %s</string>
+
     <string name="item_availability">Item Availability</string>
     <string name="order_btn">Order</string>
     <string name="product_image">Product Image</string>
@@ -95,7 +120,10 @@
     <string name="item_Price04">P650.00</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_customer_main">CustomerMainActivity</string>
+    <string name="title_activity_retailer_main">RetailerMainActivity</string>
+    <string name="title_activity_create_gasoline">CreateGasolineActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="sample_text">Sample Text</string>
 </resources>

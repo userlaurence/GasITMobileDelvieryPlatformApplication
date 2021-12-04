@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.gasitmobiledelvieryplatformapplication"
-        minSdkVersion 19
+        minSdkVersion 24
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -45,9 +45,12 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.GrenderG:Toasty:1.5.2'
 }

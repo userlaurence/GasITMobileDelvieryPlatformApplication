@@ -19,23 +19,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GasITMobileDelvieryPlatformApplication.NoActionBar">
-
+        android:theme="@style/Theme.GasITMobileDeliveryPlatformApplication.NoActionBar">
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".CustomerMainActivity"
             android:exported="true"
             android:label="@string/title_activity_customer_main" />
-
         <activity
             android:name=".RetailerMainActivity"
             android:exported="true"
             android:label="@string/title_activity_retailer_main" />
-
         <activity
             android:name=".CreateGasolineActivity"
             android:exported="true"
             android:label="@string/title_activity_create_gasoline" />
-
         <activity
             android:name=".GoogleMap"
             android:exported="true" />
@@ -54,9 +53,7 @@
         <activity
             android:name=".RegistrationForm"
             android:exported="true" />
-
         <activity android:name=".SignInRegister" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"

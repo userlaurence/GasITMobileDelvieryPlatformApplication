@@ -16,4 +16,5 @@
     <dimen name="button_text_size">14sp</dimen>
     <dimen name="input_text_size">16sp</dimen>
     <dimen name="input_field_margin">8dp</dimen>
+    <dimen name="panel_margin">16dp</dimen>
 </resources>

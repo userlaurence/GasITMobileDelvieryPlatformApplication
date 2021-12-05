@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GasITMobileDelvieryPlatformApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.GasITMobileDeliveryPlatformApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,14 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.GasITMobileDelvieryPlatformApplication.NoActionBar">
+    <style name="Theme.GasITMobileDeliveryPlatformApplication.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.GasITMobileDelvieryPlatformApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.GasITMobileDeliveryPlatformApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.GasITMobileDelvieryPlatformApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.GasITMobileDeliveryPlatformApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>

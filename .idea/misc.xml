@@ -25,6 +25,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_storefront_24.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/panel_background.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/font/adamina.xml" value="0.234375" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_sign_in_register.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/dialog_simple.xml" value="0.5" />
@@ -33,7 +34,8 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_main.xml" value="0.5" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_google_map.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.33" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/card_view_gasoline.xml" value="0.5" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_check_your_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />

@@ -69,7 +69,6 @@ public class SignInRegister extends AppCompatActivity {
     }
 
     public void openregisterScreen() {
-        Intent registerScreen = new Intent(this, RegistrationForm.class);
-        startActivity(registerScreen);
+        startActivity(new Intent(this, SignUpActivity.class));
     }
 }

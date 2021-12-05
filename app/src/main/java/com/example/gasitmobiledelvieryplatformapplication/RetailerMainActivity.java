@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.gasitmobiledelvieryplatformapplication.fragment.HomeFragment;
-import com.example.gasitmobiledelvieryplatformapplication.fragment.LocationFragment;
-import com.example.gasitmobiledelvieryplatformapplication.fragment.OrderFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RetailerMainActivity extends AppCompatActivity {

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/fragment_padding">
+
+    <ImageButton
+        android:id="@+id/goBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:contentDescription="@string/go_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:includeFontPadding="false"
+        android:text="@string/signup"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goBackButton" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpTextView" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstPanelConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_background"
+                android:padding="@dimen/card_view_padding"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/userFirstNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_first_name_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userFirstNameEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userFirstNameEditText" />
+
+                <EditText
+                    android:id="@+id/userFirstNameEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:autofillHints="@string/signup_first_name_hint"
+                    android:hint="@string/signup_first_name_hint"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/userLastNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_last_name_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userLastNameEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userLastNameEditText" />
+
+                <EditText
+                    android:id="@+id/userLastNameEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_last_name_hint"
+                    android:hint="@string/signup_last_name_hint"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userFirstNameEditText" />
+
+                <TextView
+                    android:id="@+id/userPhoneNumberTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_phone_number_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userPhoneNumberEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText" />
+
+                <EditText
+                    android:id="@+id/userPhoneNumberEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_phone_number_hint"
+                    android:hint="@string/signup_phone_number_hint"
+                    android:digits="+0123456789"
+                    android:ems="10"
+                    android:inputType="phone"
+                    app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userLastNameEditText" />
+
+                <TextView
+                    android:id="@+id/userAddressTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_address_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userAddressEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userAddressEditText" />
+
+                <EditText
+                    android:id="@+id/userAddressEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_address_hint"
+                    android:hint="@string/signup_address_hint"
+                    android:ems="10"
+                    android:inputType="textPostalAddress"
+                    android:lines="2"
+                    android:maxLines="3"
+                    app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userPhoneNumberEditText" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/firstPanelGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.33" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/secondPanelConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_background"
+                android:padding="@dimen/card_view_padding"
+                android:layout_marginTop="@dimen/panel_margin"
+                app:layout_constraintTop_toBottomOf="@id/firstPanelConstraintLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/userGenderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_gender_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userGenderRadioGroup"
+                    app:layout_constraintBottom_toBottomOf="@id/userGenderRadioGroup"/>
+
+                <RadioGroup
+                    android:id="@+id/userGenderRadioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/secondPanelGuideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/userGenderMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_gender_male" />
+
+                    <RadioButton
+                        android:id="@+id/userGenderFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_gender_female" />
+
+                    <RadioButton
+                        android:id="@+id/userGenderPreferNotToSay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_gender_prefer_not_to_say" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/userAgeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_age_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userAgeEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userAgeEditText" />
+
+                <EditText
+                    android:id="@+id/userAgeEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_age_hint"
+                    android:hint="@string/signup_age_hint"
+                    android:ems="5"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="@id/secondPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userGenderRadioGroup" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/secondPanelGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.20" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/thirdPanelConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_background"
+                android:padding="@dimen/card_view_padding"
+                android:layout_marginTop="@dimen/panel_margin"
+                app:layout_constraintTop_toBottomOf="@id/secondPanelConstraintLayout"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/userEmailTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_email_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userEmailEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/userEmailEditText" />
+
+                <EditText
+                    android:id="@+id/userEmailEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:autofillHints="@string/signup_email_hint"
+                    android:hint="@string/signup_email_hint"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
+                    app:layout_constraintTop_toTopOf="@id/thirdPanelConstraintLayout" />
+
+                <TextView
+                    android:id="@+id/userPasswordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_password_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userPasswordEditText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/userPasswordEditText" />
+
+                <EditText
+                    android:id="@+id/userPasswordEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_password_hint"
+                    android:hint="@string/signup_password_hint"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userEmailEditText" />
+
+                <TextView
+                    android:id="@+id/userConfirmPasswordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:text="@string/signup_confirm_password_label"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userPasswordEditText" />
+
+                <EditText
+                    android:id="@+id/userConfirmPasswordEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="@dimen/input_field_margin"
+                    android:autofillHints="@string/signup_confirm_password_hint"
+                    android:hint="@string/signup_confirm_password_hint"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userPasswordEditText" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/thirdPanelGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/green"
+                android:minWidth="300dp"
+                android:text="@string/signup"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/button_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/thirdPanelConstraintLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

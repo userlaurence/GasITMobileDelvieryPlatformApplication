@@ -22,8 +22,9 @@ import java.util.concurrent.CompletableFuture;
 public class Gasoline {
     private static final String FIREBASE_NODE = "Gasoline";
     private static final String FIREBASE_STORAGE = "Gasoline Images";
-    private final DatabaseReference databaseReference =
-            FirebaseDatabase.getInstance().getReference(FIREBASE_NODE);
+    private final DatabaseReference databaseReference = FirebaseDatabase
+            .getInstance("https://gasit-a1713-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference(FIREBASE_NODE);
     private final Map<String, Object> gasolineMap;
 
     private String uid;

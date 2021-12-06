@@ -25,10 +25,10 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:includeFontPadding="false"
         android:text="@string/signup"
-        android:textSize="50sp"
+        android:textSize="@dimen/title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/goBackButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="0dp"
@@ -187,18 +187,24 @@
                         android:id="@+id/userGenderMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:minHeight="48dp"
                         android:text="@string/signup_gender_male" />
 
                     <RadioButton
                         android:id="@+id/userGenderFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:minHeight="48dp"
                         android:text="@string/signup_gender_female" />
 
                     <RadioButton
                         android:id="@+id/userGenderPreferNotToSay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:minHeight="48dp"
                         android:text="@string/signup_gender_prefer_not_to_say" />
                 </RadioGroup>
 
@@ -271,22 +277,30 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_password_label"
                     android:textSize="@dimen/input_text_size"
-                    app:layout_constraintBaseline_toBaselineOf="@id/userPasswordEditText"
+                    app:layout_constraintBaseline_toBaselineOf="@id/userPasswordTextInputLayout"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/userPasswordEditText" />
+                    app:layout_constraintTop_toTopOf="@+id/userPasswordTextInputLayout" />
 
-                <EditText
-                    android:id="@+id/userPasswordEditText"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/userPasswordTextInputLayout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="@dimen/input_field_margin"
-                    android:autofillHints="@string/signup_password_hint"
-                    android:hint="@string/signup_password_hint"
-                    android:ems="10"
-                    android:inputType="textPassword"
+                    app:boxBackgroundMode="none"
+                    app:passwordToggleEnabled="true"
                     app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
-                    app:layout_constraintTop_toBottomOf="@id/userEmailEditText" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userEmailEditText">
+
+                    <EditText
+                        android:id="@+id/userPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="48dp"
+                        android:autofillHints="@string/signup_password_hint"
+                        android:hint="@string/signup_password_hint"
+                        android:ems="10"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/userConfirmPasswordTextView"
@@ -296,20 +310,29 @@
                     android:text="@string/signup_confirm_password_label"
                     android:textSize="@dimen/input_text_size"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userPasswordEditText" />
+                    app:layout_constraintBaseline_toBaselineOf="@id/userConfirmPasswordTextInputLayout"
+                    app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout" />
 
-                <EditText
-                    android:id="@+id/userConfirmPasswordEditText"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/userConfirmPasswordTextInputLayout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:layout_marginTop="@dimen/input_field_margin"
-                    android:autofillHints="@string/signup_confirm_password_hint"
-                    android:hint="@string/signup_confirm_password_hint"
-                    android:ems="10"
-                    android:inputType="textPassword"
+                    app:boxBackgroundMode="none"
+                    app:passwordToggleEnabled="true"
                     app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
-                    app:layout_constraintTop_toBottomOf="@id/userPasswordEditText" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout">
+
+                    <EditText
+                        android:id="@+id/userConfirmPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:autofillHints="@string/signup_confirm_password_hint"
+                        android:hint="@string/signup_confirm_password_hint"
+                        android:ems="10"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/thirdPanelGuideline"

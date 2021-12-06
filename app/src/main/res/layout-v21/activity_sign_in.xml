@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/fragment_padding">
+
+    <ImageView
+        android:id="@+id/gasItImageView"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/gasoline_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/splash_screen_icon" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signInPanelConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/panel_background"
+        android:padding="@dimen/card_view_padding"
+        app:layout_constraintTop_toBottomOf="@id/gasItImageView"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/signInEmailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_email_label"
+            android:textSize="@dimen/input_text_size"
+            app:layout_constraintBaseline_toBaselineOf="@id/signInEmailEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/signInEmailEditText" />
+
+        <EditText
+            android:id="@+id/signInEmailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:autofillHints="@string/signup_email_hint"
+            android:hint="@string/signup_email_hint"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="@id/signInPanelGuideline"
+            app:layout_constraintTop_toTopOf="@id/signInPanelConstraintLayout" />
+
+        <TextView
+            android:id="@+id/signInPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_password_label"
+            android:textSize="@dimen/input_text_size"
+            app:layout_constraintBaseline_toBaselineOf="@id/signInPasswordTextInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/signInPasswordTextInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signInPasswordTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="none"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintStart_toStartOf="@id/signInPanelGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signInEmailEditText">
+
+            <EditText
+                android:id="@+id/signInPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="48dp"
+                android:autofillHints="@string/signup_password_hint"
+                android:hint="@string/signup_password_hint"
+                android:ems="10"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/signInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/panel_margin"
+            android:background="@color/green"
+            android:minWidth="300dp"
+            android:text="@string/sign_in"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signInPasswordTextInputLayout" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/signInPanelGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signUpOptionsPanelConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/panel_background"
+        android:padding="@dimen/card_view_padding"
+        android:layout_marginTop="@dimen/panel_margin"
+        app:layout_constraintTop_toBottomOf="@id/signInPanelConstraintLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/signInWithFacebookButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_facebook_48"
+            android:background="@color/blue"
+            android:minWidth="300dp"
+            android:text="@string/sign_in_with_facebook"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:drawablePadding="5dp"
+            app:flow_verticalAlign="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/signInWithGoogleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/panel_margin"
+            android:drawableStart="@drawable/ic_google_48"
+            android:background="@color/light_blue"
+            android:minWidth="300dp"
+            android:text="@string/sign_in_with_google"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:drawablePadding="15dp"
+            app:flow_verticalAlign="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signInWithFacebookButton" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/panel_margin"
+            android:background="@color/green"
+            android:minWidth="300dp"
+            android:text="@string/sign_in_register"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signInWithGoogleButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

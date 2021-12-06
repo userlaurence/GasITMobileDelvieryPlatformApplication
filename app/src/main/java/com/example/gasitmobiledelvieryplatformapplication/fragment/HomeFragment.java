@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gasitmobiledelvieryplatformapplication.CreateGasolineActivity;
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         progressBar = rootView.findViewById(R.id.progressBar);
 
         recyclerView = rootView.findViewById(R.id.gasolineRecyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         initData();

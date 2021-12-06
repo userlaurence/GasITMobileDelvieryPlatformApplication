@@ -16,7 +16,6 @@ import com.example.gasitmobiledelvieryplatformapplication.util.Formatter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-import java.util.Locale;
 
 public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.GasolineViewHolder> {
     private final List<Gasoline> gasolineArrayList;
@@ -37,19 +36,20 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
     public void onBindViewHolder(@NonNull GasolineViewHolder holder, int position) {
         Gasoline gasoline = gasolineArrayList.get(position);
 
-        String nameAndWeightText = String.format(Locale.getDefault(), "%s (%.02f kgs)",
-                gasoline.getName(), gasoline.getWeight());
+        String weightText = gasoline.getWeight() + " kgs";
         String priceText = Formatter.formatMoneyWithPesoSign(gasoline.getPrice());
-        String stockText = String.valueOf(gasoline.getStock());
+        String stockText = gasoline.getStock() + " left";
 
         Picasso.get()
                 .load(gasoline.getImageUrl())
                 .placeholder(R.drawable.splash_screen_icon)
                 .fit()
                 .into(holder.gasolineImageView);
-        holder.gasolineNameAndWeightTextView.setText(nameAndWeightText);
+        holder.gasolineNameTextView.setText(gasoline.getName());
         holder.gasolinePriceTextView.setText(priceText);
+        holder.gasolineWeightTextView.setText(weightText);
         if (gasoline.getStock() <= 0) {
+            holder.gasolineCardContainer.setBackgroundResource(R.drawable.out_of_stock_background);
             holder.gasolineStockTextView.setTextColor(Color.parseColor("#E94646")); // RED
             holder.gasolineStockTextView.setText(R.string.gasoline_out_of_stock);
         } else {
@@ -64,14 +64,18 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
 
     public static class GasolineViewHolder extends RecyclerView.ViewHolder {
         ImageView gasolineImageView;
-        TextView gasolineNameAndWeightTextView, gasolinePriceTextView, gasolineStockTextView;
+        TextView gasolineNameTextView, gasolinePriceTextView,
+                gasolineStockTextView, gasolineWeightTextView;
+        View gasolineCardContainer;
 
         public GasolineViewHolder(@NonNull View itemView) {
             super(itemView);
+            gasolineCardContainer = itemView.findViewById(R.id.gasolineCardContainer);
             gasolineImageView = itemView.findViewById(R.id.gasolineImageView);
-            gasolineNameAndWeightTextView = itemView.findViewById(R.id.gasolineNameAndWeightTextView);
+            gasolineNameTextView = itemView.findViewById(R.id.gasolineNameTextView);
             gasolinePriceTextView = itemView.findViewById(R.id.gasolinePriceTextView);
             gasolineStockTextView = itemView.findViewById(R.id.gasolineStockTextView);
+            gasolineWeightTextView = itemView.findViewById(R.id.gasolineWeightTextView);
         }
     }
 }

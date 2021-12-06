@@ -72,10 +72,11 @@
 
     <!-- Gasoline Card View -->
     <string name="gasoline_image">Gasoline Image</string>
-    <string name="gasoline_name_and_weight">Name (12 kgs.)</string>
+    <string name="gasoline_name">Name</string>
     <string name="gasoline_price">₱%d</string>
     <string name="gasoline_stock">123 Remaining</string>
     <string name="gasoline_out_of_stock">Out of Stock</string>
+    <string name="gasoline_weight">12 kgs.</string>
 
     <!-- Gasoline Create Gasoline Label -->
     <string name="gasoline_name_label">Name</string>
@@ -90,6 +91,12 @@
     <string name="gasoline_cancel_create">
         Are you sure you want to cancel creating gasoline and go back to home?
     </string>
+
+    <!-- Sign In -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_register">Register</string>
 
     <!-- Sign Up Label -->
     <string name="signup">Sign Up</string>
@@ -124,6 +131,10 @@
     <string name="edit_item">Edit %s</string>
     <string name="update_item">Update %s</string>
     <string name="delete_item">Delete %s</string>
+
+    <!-- Facebook -->
+    <string name="facebook_app_id">1183160985840285</string>
+    <string name="fb_login_protocol_scheme">fb1183160985840285</string>
 
     <string name="item_availability">Item Availability</string>
     <string name="order_btn">Order</string>

@@ -1,9 +1,18 @@
 package com.example.gasitmobiledelvieryplatformapplication.models;
 
+import androidx.annotation.NonNull;
+
+import com.facebook.AccessToken;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -14,7 +23,11 @@ public class User {
             .getReference(FIREBASE_NODE);
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser;
+
     private final HashMap<String, Object> userMap;
+
+    private static final String ROLE_ADMIN = "admin";
+    private static final String ROLE_CUSTOMER = "customer";
 
     private String uid;
     private String firstName;
@@ -25,6 +38,7 @@ public class User {
     private int age;
     private String email;
     private String password;
+    private String role; // Can't be initialized using constructor.
 
     public User() {
         userMap = new HashMap<>();
@@ -81,6 +95,13 @@ public class User {
     public int getAge() {  return age;   }
     public String getEmail() {  return email;   }
     public String getPassword() {   return password;    }
+    public String getRole() {   return role;    }
+    public String getFullName() {   return firstName + " " + lastName;    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+        userMap.put("uid", uid);
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -92,46 +113,108 @@ public class User {
         userMap.put("password", password);
     }
 
-    public void signIn(String email, String password, SimpleRequestCallback callback) {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+    public void setRole(String role) {
+        this.role = role;
+        userMap.put("role", role);
+    }
+
+    public boolean isAdmin() {
+        return ROLE_ADMIN.equals(getRole());
+    }
+
+    public void readAuthenticatedUser(SimpleRequestCallback callback) {
+        databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if (user != null) {
+                    setUid(snapshot.getKey());
+                    setRole(user.getRole());
+                }
+                callback.onSuccess(user.getFullName() + " successfully signed in.");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onFailure(error.getMessage());
+            }
+        });
+    }
+
+    public void signInWithEmailAndPassword(SimpleRequestCallback callback) {
+        if (getEmail() == null || getPassword() == null)
+            return; // Make sure to use constructor for sign in.
+
+        firebaseAuth.signInWithEmailAndPassword(getEmail(), getPassword())
                 .addOnCompleteListener(task -> {
                     /*
                      * Different from this.firebaseUser since currentUser is the newly created
                      * user and may not be the same with this.firebaseUser if an error occurs.
                      */
-                    FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                    firebaseUser = firebaseAuth.getCurrentUser();
 
-                    if (!task.isSuccessful() || currentUser == null) {
+                    if (!task.isSuccessful() || firebaseUser == null) {
                         callback.onFailure("Failed to login! Please check your credentials.");
                         return;
                     }
 
-                    if (!currentUser.isEmailVerified()) {
-                        currentUser.sendEmailVerification();
+                    if (!firebaseUser.isEmailVerified()) {
+                        firebaseUser.sendEmailVerification();
                         callback.onFailure("Check your email to verify your account. Then try again.");
                         return;
                     }
 
-                    callback.onSuccess(currentUser.getUid());
+                    readAuthenticatedUser(callback);
                 });
     }
 
-    // TODO: Support Facebook and Gmail logins.
-    // TODO: Logout.
-    public void signUp(SimpleRequestCallback callback) {
-        if (getEmail() == null || getPassword() == null)
-            return; // Make sure to use constructor for signup.
+    private void signInWithCredential(AuthCredential authCredential, SimpleRequestCallback callback) {
+        firebaseAuth.signInWithCredential(authCredential)
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        callback.onFailure("Authentication Failed.");
+                        return;
+                    }
 
+                    firebaseUser = firebaseAuth.getCurrentUser();
+                    readAuthenticatedUser(callback);
+                });
+    }
+
+    public void signInWithFacebook(AccessToken accessToken, SimpleRequestCallback callback) {
+        AuthCredential authCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        signInWithCredential(authCredential, callback);
+    }
+
+    public void signInWithGoogle(String idToken, SimpleRequestCallback callback) {
+        AuthCredential authCredential = GoogleAuthProvider.getCredential(idToken, null);
+        signInWithCredential(authCredential, callback);
+    }
+
+    public void signUp(SimpleRequestCallback callback) {
         firebaseAuth.createUserWithEmailAndPassword(getEmail(), getPassword())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         setPassword(null); /* So that it won't be seen in write(). */
+                        /*
+                         * All users using the signup are customers.
+                         * Admin are assign directly on Firebase and must communicate
+                         * with the Database admin.
+                         */
+                        setRole(ROLE_CUSTOMER);
                         callback.onSuccess(getFirstName() + " successfully created. " +
                                 "Please check your email to verify your account.");
                     }
                     else if (task.getException() != null)
                         callback.onFailure(task.getException().getMessage());
                 });
+    }
+
+    public void signOut() {
+        if (!checkUserSession())
+            return;
+
+        firebaseAuth.signOut();
     }
 
     public void write(SimpleRequestCallback callback) {
@@ -169,7 +252,7 @@ public class User {
                 });
     }
 
-    private boolean checkUserSession() {
+    public boolean checkUserSession() {
         if (firebaseAuth.getCurrentUser() == null)
             return false;
 

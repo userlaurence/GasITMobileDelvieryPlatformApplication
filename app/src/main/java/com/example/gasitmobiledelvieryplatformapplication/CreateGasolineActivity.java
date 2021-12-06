@@ -146,10 +146,12 @@ public class CreateGasolineActivity extends AppCompatActivity {
                 Integer.parseInt(stocksEditText.getText().toString()));
 
         if (parcelledGasoline != null) gasoline.setUid(parcelledGasoline.getUid());
+        else gasoline.generateUid();
 
         gasoline.uploadImage(imageUri, new SimpleRequestCallback() {
             @Override
-            public void onSuccess(String message) {
+            public void onSuccess(String imageDownloadUrl) {
+                gasoline.setImageUrl(imageDownloadUrl);
                 gasoline.write(new SimpleRequestCallback() {
                     @Override
                     public void onSuccess(String message) {

@@ -17,11 +17,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 public class Gasoline {
     private static final String FIREBASE_NODE = "Gasoline";
     private static final String FIREBASE_STORAGE = "Gasoline Images";
+    private final FirebaseStorage firebaseStorageReference = FirebaseStorage
+            .getInstance("gs://gasit-a1713.appspot.com");
     private final DatabaseReference databaseReference = FirebaseDatabase
             .getInstance("https://gasit-a1713-default-rtdb.asia-southeast1.firebasedatabase.app/")
             .getReference(FIREBASE_NODE);
@@ -68,18 +69,6 @@ public class Gasoline {
     public void setName(String name) {
         this.name = name;
         gasolineMap.put("name", name);
-    }
-    public void setWeight(float weight) {
-        this.weight = weight;
-        gasolineMap.put("weight", weight);
-    }
-    public void setPrice(int price) {
-        this.price = price;
-        gasolineMap.put("price", price);
-    }
-    public void setStock(int stock) {
-        this.stock = stock;
-        gasolineMap.put("stock", stock);
     }
 
     public void readAll(ListItemRequestCallback<Gasoline> callback) {
@@ -129,13 +118,14 @@ public class Gasoline {
 
     public void uploadImage(Uri imageUri, SimpleRequestCallback callback) {
         if (uid == null) {
+            // Call generateUid() first before calling uploadImage().
             callback.onFailure("Failed to upload image to the server. Please try again.");
             Log.d("FirebaseError",
                     "The UID must be provided. Call generateUid() before uploading image.");
             return;
         }
 
-        StorageReference storageReference = FirebaseStorage.getInstance()
+        StorageReference storageReference = firebaseStorageReference
                 .getReference(FIREBASE_STORAGE + "/" + this.uid);
 
         storageReference.putFile(imageUri)
@@ -148,7 +138,7 @@ public class Gasoline {
                 });
     }
 
-    private void generateUid() {
+    public void generateUid() {
         setUid(databaseReference.push().getKey());
     }
 }

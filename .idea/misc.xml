@@ -18,6 +18,7 @@
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_check_your_location.xml" value="0.2484375" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_customer_interface_tab.xml" value="0.2635416666666667" />
         <entry key="..\:/School/Thesis/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order_to_gas_i_t.xml" value="0.22" />
+        <entry key="..\:/Users/admin/.gradle/caches/transforms-3/197591e4a3829e3416a16b6630a10f0d/transformed/jetified-facebook-common-12.1.0/res/drawable/com_facebook_button_icon.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_fireplace_24.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.2203125" />
@@ -25,21 +26,26 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_baseline_storefront_24.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/out_of_stock_background.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/drawable/panel_background.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/font/adamina.xml" value="0.234375" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_sign_in.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/activity_sign_in_register.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-v21/dialog_simple.xml" value="0.5" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_create_gasoline.xml" value="0.33" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-w1240dp/activity_sign_in.xml" value="0.165625" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout-w936dp/activity_sign_in.xml" value="0.153125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_create_gasoline.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_interface_tab.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_customer_main.xml" value="0.5" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_google_map.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_main.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_registration_form.xml" value="0.33" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/card_view_gasoline.xml" value="0.5" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_sign_in.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/card_view_gasoline.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_check_your_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order.xml" value="0.2962962962962963" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/GasITMobileDelvieryPlatformApplication/app/src/main/res/layout/fragment_order_to_gas_i_t.xml" value="0.20416666666666666" />

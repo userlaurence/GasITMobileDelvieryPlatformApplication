@@ -1,10 +1,14 @@
 package com.example.gasitmobiledelvieryplatformapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.gasitmobiledelvieryplatformapplication.models.SimpleRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.models.User;
+
+import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,19 +17,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Kotlin for hiding the Action Bar
-        //supportActionBar?.hide()
+        User user = new User();
+        // TODO: Remove this once all of sign in options are tested working.
+        user.signOut();
+        if (user.checkUserSession()) {
+            user.readAuthenticatedUser(new SimpleRequestCallback() {
+                @Override
+                public void onSuccess(String message) {
+                    if (user.isAdmin())
+                        startActivity(new Intent(MainActivity.this, RetailerMainActivity.class));
+                    else
+                        startActivity(new Intent(MainActivity.this, CustomerMainActivity.class));
+                }
 
-        // TODO: Uncomment SignIn after supporting FireAuth.
-        Intent intent = new Intent(MainActivity.this, SignInRegister.class);
-//        Intent intent = new Intent(MainActivity.this, RetailerMainActivity.class);
-
-        //Incrementing Timer for Splash Screen
-        //Splash Screen (3secs.)
-        int SPLASH_SCREEN = 3000;
-        new Handler().postDelayed(() -> {
-            startActivity(intent);
-            finish();
-        }, SPLASH_SCREEN);
+                @Override
+                public void onFailure(String error) {
+                    Toasty.error(MainActivity.this, error, Toasty.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            startActivity(new Intent(MainActivity.this, SignInActivity.class));
+        }
     }
 }

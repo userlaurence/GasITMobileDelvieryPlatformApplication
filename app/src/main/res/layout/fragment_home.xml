@@ -15,10 +15,13 @@
         android:contentDescription="@string/gasoline_create"
         android:clickable="true"
         android:focusable="true"
+        android:backgroundTint="@color/background"
+        android:outlineSpotShadowColor="@null"
+        app:maxImageSize="35dp"
+        app:srcCompat="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        tools:ignore="VectorDrawableCompat" />
+        tools:targetApi="p" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gasolineRecyclerView"

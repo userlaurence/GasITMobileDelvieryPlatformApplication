@@ -47,7 +47,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initViewsAndListeners() {
-        // Initialize Views.
         progressBar = findViewById(R.id.progressBar);
 
         firstNameEditText = findViewById(R.id.userFirstNameEditText);

@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gasitmobiledelvieryplatformapplication.models.SimpleRequestCallback;
-import com.example.gasitmobiledelvieryplatformapplication.models.User;
+import com.example.gasitmobiledelvieryplatformapplication.model.SimpleRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.model.User;
 
 import es.dmoral.toasty.Toasty;
 
@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         User user = new User();
-        // TODO: Remove this once all of sign in options are tested working.
-        user.signOut();
         if (user.checkUserSession()) {
             user.readAuthenticatedUser(new SimpleRequestCallback() {
                 @Override

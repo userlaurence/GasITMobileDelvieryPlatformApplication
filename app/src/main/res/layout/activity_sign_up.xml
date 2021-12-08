@@ -26,6 +26,7 @@
         android:includeFontPadding="false"
         android:text="@string/signup"
         android:textSize="@dimen/title_text_size"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_first_name_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userFirstNameEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userFirstNameEditText" />
@@ -72,6 +74,7 @@
                     android:hint="@string/signup_first_name_hint"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -81,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_last_name_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userLastNameEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userLastNameEditText" />
@@ -95,6 +99,7 @@
                     android:hint="@string/signup_last_name_hint"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userFirstNameEditText" />
 
@@ -104,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_phone_number_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userPhoneNumberEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText" />
@@ -119,6 +125,7 @@
                     android:digits="+0123456789"
                     android:ems="10"
                     android:inputType="phone"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userLastNameEditText" />
 
@@ -128,6 +135,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_address_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userAddressEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userAddressEditText" />
@@ -144,6 +152,7 @@
                     android:inputType="textPostalAddress"
                     android:lines="2"
                     android:maxLines="3"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userPhoneNumberEditText" />
 
@@ -171,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_gender_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userGenderRadioGroup"
                     app:layout_constraintBottom_toBottomOf="@id/userGenderRadioGroup"/>
@@ -214,6 +224,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_age_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userAgeEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userAgeEditText" />
@@ -228,6 +239,7 @@
                     android:hint="@string/signup_age_hint"
                     android:ems="5"
                     android:inputType="number"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/secondPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userGenderRadioGroup" />
 
@@ -255,6 +267,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_email_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userEmailEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userEmailEditText" />
@@ -268,6 +281,7 @@
                     android:hint="@string/signup_email_hint"
                     android:ems="10"
                     android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
                     app:layout_constraintTop_toTopOf="@id/thirdPanelConstraintLayout" />
 
@@ -277,6 +291,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/signup_password_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintBaseline_toBaselineOf="@id/userPasswordTextInputLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/userPasswordTextInputLayout" />
@@ -285,6 +300,7 @@
                     android:id="@+id/userPasswordTextInputLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     app:boxBackgroundMode="none"
                     app:passwordToggleEnabled="true"
                     app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
@@ -299,6 +315,7 @@
                         android:autofillHints="@string/signup_password_hint"
                         android:hint="@string/signup_password_hint"
                         android:ems="10"
+                        android:textColor="@color/white"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -309,6 +326,7 @@
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:text="@string/signup_confirm_password_label"
                     android:textSize="@dimen/input_text_size"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBaseline_toBaselineOf="@id/userConfirmPasswordTextInputLayout"
                     app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout" />
@@ -331,6 +349,7 @@
                         android:autofillHints="@string/signup_confirm_password_hint"
                         android:hint="@string/signup_confirm_password_hint"
                         android:ems="10"
+                        android:textColor="@color/white"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -350,9 +369,10 @@
                 android:background="@color/green"
                 android:minWidth="300dp"
                 android:text="@string/signup"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
+                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thirdPanelConstraintLayout" />

@@ -91,7 +91,7 @@ public class RetailerHomeFragment extends Fragment {
     }
 
     private void onDataInitializedSuccess(List<Gasoline> gasolineList) {
-        GasolineAdapter gasolineAdapter = new GasolineAdapter(gasolineList);
+        GasolineAdapter gasolineAdapter = new GasolineAdapter(true, gasolineList);
         gasolineAdapter.setOnClickListener(this::goToCreateGasoline);
         recyclerView.setAdapter(gasolineAdapter);
     }

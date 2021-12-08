@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.GasolineViewHolder> {
+    private final boolean isAdmin;
     private final List<Gasoline> gasolineArrayList;
     private OnClickListener listener;
 
@@ -25,7 +26,8 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
         void onClick(Gasoline gasoline);
     }
 
-    public GasolineAdapter(List<Gasoline> gasolineArrayList) {
+    public GasolineAdapter(boolean isAdmin, List<Gasoline> gasolineArrayList) {
+        this.isAdmin = isAdmin;
         this.gasolineArrayList = gasolineArrayList;
     }
 
@@ -39,7 +41,7 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
 
     @Override
     public void onBindViewHolder(@NonNull GasolineViewHolder holder, int position) {
-        holder.onBind(gasolineArrayList.get(position), listener);
+        holder.onBind(isAdmin, gasolineArrayList.get(position), listener);
     }
 
     @Override
@@ -67,7 +69,7 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
             gasolineWeightTextView = itemView.findViewById(R.id.gasolineWeightTextView);
         }
 
-        public void onBind(Gasoline gasoline, OnClickListener listener) {
+        public void onBind(boolean isAdmin, Gasoline gasoline, OnClickListener listener) {
             String weightText = gasoline.getWeight() + " kgs";
             String priceText = Formatter.formatMoneyWithPesoSign(gasoline.getPrice());
             String stockText = gasoline.getStock() + " left";
@@ -84,6 +86,12 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
                 gasolineCardContainer.setBackgroundResource(R.drawable.out_of_stock_background);
                 gasolineStockTextView.setTextColor(Color.parseColor("#E94646")); // RED
                 gasolineStockTextView.setText(R.string.gasoline_out_of_stock);
+                if (isAdmin) {
+                    itemView.setOnClickListener(v -> {
+                        if (listener == null || getAdapterPosition() == RecyclerView.NO_POSITION) return;
+                        listener.onClick(gasoline);
+                    });
+                }
             } else {
                 gasolineStockTextView.setText(stockText);
                 itemView.setOnClickListener(v -> {

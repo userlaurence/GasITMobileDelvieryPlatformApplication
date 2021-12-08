@@ -12,8 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.gasitmobiledelvieryplatformapplication.models.SimpleRequestCallback;
-import com.example.gasitmobiledelvieryplatformapplication.models.User;
+import com.example.gasitmobiledelvieryplatformapplication.model.SimpleRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.model.User;
 import com.example.gasitmobiledelvieryplatformapplication.util.FieldUtil;
 
 import es.dmoral.toasty.Toasty;

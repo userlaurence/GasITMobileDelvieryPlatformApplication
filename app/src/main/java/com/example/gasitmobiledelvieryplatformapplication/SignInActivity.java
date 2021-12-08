@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gasitmobiledelvieryplatformapplication.R.id;
-import com.example.gasitmobiledelvieryplatformapplication.models.SimpleRequestCallback;
-import com.example.gasitmobiledelvieryplatformapplication.models.User;
+import com.example.gasitmobiledelvieryplatformapplication.model.SimpleRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.model.User;
 import com.example.gasitmobiledelvieryplatformapplication.util.FieldUtil;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -124,6 +124,7 @@ public class SignInActivity extends AppCompatActivity {
         if (isAdmin)    activityClass = RetailerMainActivity.class;
         else            activityClass = CustomerMainActivity.class;
         startActivity(new Intent(getApplicationContext(), activityClass));
+        finish();
     }
 
     private User validateInputs() {

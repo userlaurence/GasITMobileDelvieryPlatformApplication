@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="@string/create_item"
         android:textSize="@dimen/title_text_size"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gasoline_name_label"
                 android:textSize="@dimen/input_text_size"
+                android:textColor="@color/white"
                 app:layout_constraintBaseline_toBaselineOf="@id/gasolineNameEditText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/gasolineNameEditText" />
@@ -86,6 +88,7 @@
                 android:hint="@string/gasoline_name_label"
                 android:textColorHint="@color/text_input_hint"
                 android:inputType="text"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/gasolineImageView" />
 
@@ -95,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gasoline_weight_label"
                 android:textSize="@dimen/input_text_size"
+                android:textColor="@color/white"
                 app:layout_constraintBaseline_toBaselineOf="@id/gasolineWeightEditText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/gasolineWeightEditText" />
@@ -110,21 +114,23 @@
                 android:hint="@string/gasoline_weight_hint"
                 android:textColorHint="@color/text_input_hint"
                 android:inputType="numberDecimal"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/gasolineNameEditText" />
 
             <TextView
-                android:id="@+id/gasolineStocksTextView"
+                android:id="@+id/gasolineStockTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gasoline_stock_label"
                 android:textSize="@dimen/input_text_size"
-                app:layout_constraintBaseline_toBaselineOf="@id/gasolineStocksEditText"
+                android:textColor="@color/white"
+                app:layout_constraintBaseline_toBaselineOf="@id/gasolineStockEditText"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/gasolineStocksEditText" />
+                app:layout_constraintTop_toTopOf="@+id/gasolineStockEditText" />
 
             <EditText
-                android:id="@+id/gasolineStocksEditText"
+                android:id="@+id/gasolineStockEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
@@ -134,6 +140,7 @@
                 android:hint="@string/gasoline_stock_hint"
                 android:textColorHint="@color/text_input_hint"
                 android:inputType="number"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/gasolineWeightEditText" />
 
@@ -143,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gasoline_price_label"
                 android:textSize="@dimen/input_text_size"
+                android:textColor="@color/white"
                 app:layout_constraintBaseline_toBaselineOf="@id/gasolinePriceEditText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/gasolinePriceEditText" />
@@ -160,40 +168,29 @@
                 android:inputType="numberDecimal"
                 android:lines="2"
                 android:maxLines="5"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/gasolineStocksEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/gasolineStockEditText" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.28" />
+                app:layout_constraintGuide_percent="0.33" />
 
             <Button
                 android:id="@+id/createGasolineButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@color/green"
                 android:text="@string/create_item"
                 android:textSize="@dimen/button_text_size"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cancelButton"
-                app:layout_constraintTop_toBottomOf="@+id/gasolinePriceEditText" />
-
-            <Button
-                android:id="@+id/cancelButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@color/red"
-                android:text="@string/cancel"
-                android:textSize="@dimen/button_text_size"
-                app:layout_constraintEnd_toStartOf="@+id/createGasolineButton"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gasolinePriceEditText" />
 
@@ -202,10 +199,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginTop="@dimen/input_field_margin"
+                android:layout_marginTop="20dp"
                 android:background="@color/red"
                 android:visibility="gone"
                 android:text="@string/delete_item"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createGasolineButton" />

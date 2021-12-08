@@ -3,6 +3,7 @@ package com.example.gasitmobiledelvieryplatformapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -15,9 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gasitmobiledelvieryplatformapplication.dialog.CancelConfirmationDialogFragment;
-import com.example.gasitmobiledelvieryplatformapplication.models.Gasoline;
-import com.example.gasitmobiledelvieryplatformapplication.models.SimpleRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.model.Gasoline;
+import com.example.gasitmobiledelvieryplatformapplication.model.SimpleRequestCallback;
 import com.example.gasitmobiledelvieryplatformapplication.util.Formatter;
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +30,7 @@ public class CreateGasolineActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private ImageView imageView;
-    private EditText nameEditText, weightEditText, priceEditText, stocksEditText;
+    private EditText nameEditText, weightEditText, priceEditText, stockEditText;
 
     private Uri imageUri;
 
@@ -83,14 +83,13 @@ public class CreateGasolineActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.gasolineNameEditText);
         weightEditText = findViewById(R.id.gasolineWeightEditText);
         priceEditText = findViewById(R.id.gasolinePriceEditText);
-        stocksEditText = findViewById(R.id.gasolineStocksEditText);
+        stockEditText = findViewById(R.id.gasolineStockEditText);
 
         final ImageButton goBackButton = findViewById(R.id.goBackButton);
-        final Button cancelButton = findViewById(R.id.cancelButton);
         final Button createGasolineButton = findViewById(R.id.createGasolineButton);
         final Button deleteGasolineButton = findViewById(R.id.deleteGasolineButton);
 
-        // Values of parcelled product.
+        // Values of parcelled gasoline.
         if (parcelledGasoline != null) {
             if (parcelledGasoline.getImageUrl() != null) {
                 imageUri = Uri.parse(parcelledGasoline.getImageUrl());
@@ -104,9 +103,9 @@ public class CreateGasolineActivity extends AppCompatActivity {
 
             nameEditText.setText(parcelledGasoline.getName());
             weightEditText.setText(String.valueOf(parcelledGasoline.getWeight()));
-            priceEditText.setText(getString(R.string.gasoline_price,
+            priceEditText.setText(String.valueOf(
                     Formatter.formatMoneyForDisplay(parcelledGasoline.getPrice())));
-            stocksEditText.setText(String.valueOf(parcelledGasoline.getStock()));
+            stockEditText.setText(String.valueOf(parcelledGasoline.getStock()));
 
             deleteGasolineButton.setText(getString(R.string.delete_item, parcelledGasoline.getName()));
         }
@@ -122,13 +121,26 @@ public class CreateGasolineActivity extends AppCompatActivity {
 
         // Button Listeners.
         goBackButton.setOnClickListener(view -> goBackToHome());
-        cancelButton.setOnClickListener(view -> askToGoBackToHomeDialog());
         createGasolineButton.setOnClickListener(view -> writeGasoline(parcelledGasoline));
-        // TODO: Support delete and edit Gasoline.
-//        if (parcelledGasoline != null) {
-//            deleteGasolineButton.setVisibility(View.VISIBLE);
-//            deleteGasolineButton.setOnClickListener(view -> presenter.deleteProduct(parcelledProduct.getUid()));
-//        }
+        if (parcelledGasoline != null) {
+            deleteGasolineButton.setVisibility(View.VISIBLE);
+            deleteGasolineButton.setOnClickListener(view -> deleteGasoline(parcelledGasoline));
+        }
+    }
+
+    private void deleteGasoline(Gasoline gasoline) {
+       gasoline.delete(new SimpleRequestCallback() {
+           @Override
+           public void onSuccess(String message) {
+               onRequestSuccess(message);
+               goBackToHome();
+           }
+
+           @Override
+           public void onFailure(String error) {
+               onRequestError(error);
+           }
+       });
     }
 
     private void writeGasoline(Gasoline parcelledGasoline) {
@@ -143,26 +155,24 @@ public class CreateGasolineActivity extends AppCompatActivity {
                 Float.parseFloat(weightEditText.getText().toString()),
                 Formatter.formatMoneyForDB(
                         Float.parseFloat(priceEditText.getText().toString())),
-                Integer.parseInt(stocksEditText.getText().toString()));
+                Integer.parseInt(stockEditText.getText().toString()));
 
         if (parcelledGasoline != null) gasoline.setUid(parcelledGasoline.getUid());
         else gasoline.generateUid();
+
+        if (parcelledGasoline != null &&
+                imageUri.equals(Uri.parse(parcelledGasoline.getImageUrl()))) {
+            gasoline.write(writeCallback());
+            goBackToHome();
+            return;
+        }
 
         gasoline.uploadImage(imageUri, new SimpleRequestCallback() {
             @Override
             public void onSuccess(String imageDownloadUrl) {
                 gasoline.setImageUrl(imageDownloadUrl);
-                gasoline.write(new SimpleRequestCallback() {
-                    @Override
-                    public void onSuccess(String message) {
-                        onRequestSuccess("Gasoline successfully created.");
-                    }
-
-                    @Override
-                    public void onFailure(String error) {
-                        onRequestError(error);
-                    }
-                });
+                gasoline.write(writeCallback());
+                goBackToHome();
             }
 
             @Override
@@ -172,9 +182,18 @@ public class CreateGasolineActivity extends AppCompatActivity {
         });
     }
 
-    private void askToGoBackToHomeDialog() {
-        new CancelConfirmationDialogFragment()
-                .show(getSupportFragmentManager(), CancelConfirmationDialogFragment.TAG);
+    private SimpleRequestCallback writeCallback() {
+        return new SimpleRequestCallback() {
+            @Override
+            public void onSuccess(String message) {
+                onRequestSuccess("Gasoline successfully created.");
+            }
+
+            @Override
+            public void onFailure(String error) {
+                onRequestError(error);
+            }
+        };
     }
 
     private void openFileChooser() {

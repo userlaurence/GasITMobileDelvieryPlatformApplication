@@ -9,7 +9,7 @@
     <color name="colorPrimary">#008036</color>
     <color name="colorPrimaryDark">#FF3700B3</color>
     <color name="colorAccent">#DD5574C3</color>
-    <color name="colorInactive">#636363</color>
+    <color name="colorInactive">#FF03DAC5</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -18,6 +18,6 @@
     <color name="light_blue">#338BA8</color>
     <color name="red">#E94646</color>
     <color name="green">#008036</color>
-    <color name="background">#DD5574C3</color>
+    <color name="background">#FF5574C3</color>
     <color name="text_input_hint">#636363</color>
 </resources>

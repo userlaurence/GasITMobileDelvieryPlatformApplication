@@ -1,4 +1,4 @@
-package com.example.gasitmobiledelvieryplatformapplication.models;
+package com.example.gasitmobiledelvieryplatformapplication.model;
 
 import java.util.List;
 

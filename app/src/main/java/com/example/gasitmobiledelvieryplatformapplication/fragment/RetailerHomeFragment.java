@@ -19,28 +19,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gasitmobiledelvieryplatformapplication.CreateGasolineActivity;
 import com.example.gasitmobiledelvieryplatformapplication.R;
 import com.example.gasitmobiledelvieryplatformapplication.adapter.GasolineAdapter;
-import com.example.gasitmobiledelvieryplatformapplication.models.Gasoline;
-import com.example.gasitmobiledelvieryplatformapplication.models.ListItemRequestCallback;
+import com.example.gasitmobiledelvieryplatformapplication.model.Gasoline;
+import com.example.gasitmobiledelvieryplatformapplication.model.ListItemRequestCallback;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
-public class HomeFragment extends Fragment {
+public class RetailerHomeFragment extends Fragment {
     private ActivityResultLauncher<Intent> refreshFragmentActivityResultLauncher;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
 
-    public HomeFragment() {
-        super(R.layout.fragment_home);
+    public RetailerHomeFragment() {
+        super(R.layout.fragment_retailer_home);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_retailer_home, container, false);
 
         progressBar = rootView.findViewById(R.id.progressBar);
 
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
                 });
 
         FloatingActionButton fabCreateGasoline = rootView.findViewById(R.id.fabCreateGasoline);
-        fabCreateGasoline.setOnClickListener(view -> goToCreateGasoline());
+        fabCreateGasoline.setOnClickListener(view -> goToCreateGasoline(null));
 
         return rootView;
     }
@@ -87,13 +87,12 @@ public class HomeFragment extends Fragment {
         Toasty.info(getActivity(),
                 "There's no gasoline yet! Going to Create New Gasoline.",
                 Toasty.LENGTH_SHORT).show();
-        goToCreateGasoline();
+        goToCreateGasoline(null);
     }
 
     private void onDataInitializedSuccess(List<Gasoline> gasolineList) {
         GasolineAdapter gasolineAdapter = new GasolineAdapter(gasolineList);
-        // TODO: Listener when clicked. Go to order fragment.
-        // gasolineAdapter.setListener(this::displayProduct);
+        gasolineAdapter.setOnClickListener(this::goToCreateGasoline);
         recyclerView.setAdapter(gasolineAdapter);
     }
 
@@ -104,8 +103,11 @@ public class HomeFragment extends Fragment {
         Toasty.error(getActivity(), error, Toasty.LENGTH_SHORT).show();
     }
 
-    private void goToCreateGasoline() {
+    private void goToCreateGasoline(Gasoline parcelGasoline) {
         Intent intent = new Intent(getActivity(), CreateGasolineActivity.class);
+        if (parcelGasoline != null)
+            intent.putExtra(CreateGasolineActivity.EXTRA_GASOLINE_KEY, parcelGasoline);
+
         refreshFragmentActivityResultLauncher.launch(intent);
     }
 }

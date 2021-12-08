@@ -37,12 +37,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void onRequestSuccess(String message) {
-        progressBar.setVisibility(android.view.View.GONE);
+        progressBar.setVisibility(View.GONE);
         Toasty.success(this, message, Toasty.LENGTH_LONG).show();
     }
 
     private void onRequestError(String error) {
-        progressBar.setVisibility(android.view.View.GONE);
+        progressBar.setVisibility(View.GONE);
         Toasty.error(this, error, Toasty.LENGTH_SHORT).show();
     }
 

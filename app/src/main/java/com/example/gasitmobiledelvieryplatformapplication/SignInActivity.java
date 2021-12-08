@@ -104,18 +104,18 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void onRequestSuccess(String message, boolean isAdmin) {
-        progressBar.setVisibility(android.view.View.GONE);
+        progressBar.setVisibility(View.GONE);
         Toasty.success(this, message, Toasty.LENGTH_LONG).show();
         goToRoleSpecificMainActivity(isAdmin);
     }
 
     private void onRequestCancel(String message) {
-        progressBar.setVisibility(android.view.View.GONE);
+        progressBar.setVisibility(View.GONE);
         Toasty.info(this, message, Toasty.LENGTH_LONG).show();
     }
 
     private void onRequestError(String error) {
-        progressBar.setVisibility(android.view.View.GONE);
+        progressBar.setVisibility(View.GONE);
         Toasty.error(this, error, Toasty.LENGTH_SHORT).show();
     }
 

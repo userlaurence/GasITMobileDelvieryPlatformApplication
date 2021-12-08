@@ -43,7 +43,10 @@
     <string name="nav_home">Home</string>
     <string name="nav_gas">Order</string>
     <string name="nav_map">Location</string>
-    <string name="nav_orders">Orders</string>
+    <string name="nav_order_status">Orders</string>
+    <string name="nav_order_pending">Pending</string>
+    <string name="nav_order_shipping">Shipping</string>
+    <string name="nav_order_delivered">Delivered</string>
     <string name="nav_warehouse">Warehouse</string>
     <string name="nav_sales">Sales</string>
 
@@ -73,10 +76,16 @@
     <!-- Gasoline Card View -->
     <string name="gasoline_image">Gasoline Image</string>
     <string name="gasoline_name">Name</string>
-    <string name="gasoline_price">₱%d</string>
-    <string name="gasoline_stock">123 Remaining</string>
+    <string name="gasoline_price">₱%.2f</string>
+    <string name="gasoline_stock">%d Remaining</string>
     <string name="gasoline_out_of_stock">Out of Stock</string>
     <string name="gasoline_weight">12 kgs.</string>
+
+    <!-- Order Activity -->
+    <string name="gasoline_total">Total: ₱%.2f</string>
+    <string name="gasoline_how_many">0</string>
+    <string name="edit_phone_number">Edit Phone Number</string>
+    <string name="edit_address">Edit Address</string>
 
     <!-- Gasoline Create Gasoline Label -->
     <string name="gasoline_name_label">Name</string>
@@ -127,10 +136,37 @@
     <string name="go_back">Go Back</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="proceed">Proceed</string>
     <string name="create_item">Create %s</string>
     <string name="edit_item">Edit %s</string>
     <string name="update_item">Update %s</string>
     <string name="delete_item">Delete %s</string>
+
+    <!-- Order Fragment -->
+    <string name="notification">%d</string>
+    <string name="orders_status">Status</string>
+    <string name="orders_pending">Pending</string>
+    <string name="orders_shipping">Shipping</string>
+    <string name="orders_delivered">Delivered</string>
+
+    <!-- Order CardView -->
+    <string name="order_info">Order Info</string>
+    <string name="order_name">%s</string>
+    <string name="order_computation">₱%.2f x %dpcs = </string>
+    <string name="order_total">₱%.2f</string>
+    <string name="order_date">%s</string>
+    <string name="customer_info">Customer Info</string>
+    <string name="customer_phone_number">%s</string>
+    <string name="customer_address">%s</string>
+    <string name="change_status">Change Status</string>
+
+    <!-- Sales Fragment -->
+    <string name="sales_date">DD/MM/YYYY</string>
+    <string name="sales_previous">Previous</string>
+    <string name="sales_next">Next</string>
+    <string name="sales_show_per">Show per:</string>
+    <string name="sales_date_format_spinner">Date Format Spinner</string>
+    <string name="sales_sales_table">ScrollView for SalesTableLayout</string>
 
     <!-- Facebook -->
     <string name="facebook_app_id">1183160985840285</string>

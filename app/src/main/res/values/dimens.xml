@@ -13,8 +13,11 @@
 
     <dimen name="fragment_padding">10dp</dimen>
     <dimen name="title_text_size">30sp</dimen>
-    <dimen name="button_text_size">18sp</dimen>
-    <dimen name="input_text_size">16sp</dimen>
+    <dimen name="subtitle_text_size">25sp</dimen>
+    <dimen name="information_text_size">18sp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="small_button_text_size">14sp</dimen>
+    <dimen name="input_text_size">18sp</dimen>
     <dimen name="input_field_margin">8dp</dimen>
     <dimen name="panel_margin">16dp</dimen>
 </resources>

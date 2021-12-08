@@ -54,7 +54,7 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
 
-    // Image loading / processing Library.
+    // Image loading / Processing Library.
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Stylized Android Toast.

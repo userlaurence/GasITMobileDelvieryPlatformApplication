@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navPending"
+        android:icon="@drawable/ic_baseline_pending_24"
+        android:title="@string/nav_order_pending" />
+
+    <item
+        android:id="@+id/navShipping"
+        android:icon="@drawable/ic_baseline_local_shipping_24"
+        android:title="@string/nav_order_shipping" />
+
+    <item
+        android:id="@+id/navDelivered"
+        android:icon="@drawable/ic_baseline_fireplace_24"
+        android:title="@string/nav_order_delivered" />
+</menu>

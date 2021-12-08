@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/fragment_padding">
+
+    <ImageView
+        android:id="@+id/gasolineImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/gasoline_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/splash_screen_icon" />
+
+    <TextView
+        android:id="@+id/gasolineNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/gasoline_name"
+        android:textSize="@dimen/title_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gasolineImageView" />
+
+    <TextView
+        android:id="@+id/gasolinePriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/input_field_margin"
+        android:text="@string/gasoline_price"
+        android:textSize="@dimen/subtitle_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
+        app:layout_constraintEnd_toEndOf="@id/gasolineNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/gasolineNameTextView" />
+
+    <TextView
+        android:id="@+id/gasolineTotalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/gasoline_total"
+        android:textSize="@dimen/input_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gasolineStockTextView" />
+
+    <TextView
+        android:id="@+id/gasolineStockTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/gasoline_stock"
+        android:textColor="@color/green"
+        android:textSize="@dimen/information_text_size"
+        app:layout_constraintStart_toStartOf="@+id/quantityCounterTextView"
+        app:layout_constraintEnd_toEndOf="@+id/quantityCounterTextView"
+        app:layout_constraintTop_toBottomOf="@+id/quantityCounterTextView" />
+
+    <TextView
+        android:id="@+id/quantityCounterTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="50dp"
+        android:gravity="center"
+        android:text="@string/gasoline_how_many"
+        android:textAlignment="center"
+        android:textSize="@dimen/subtitle_text_size"
+        android:layout_marginTop="@dimen/input_field_margin"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/increaseButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/decreaseButton"
+        app:layout_constraintTop_toBottomOf="@id/gasolinePriceTextView" />
+
+    <ImageView
+        android:id="@+id/decreaseButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/red"
+        android:contentDescription="@string/gasoline_image"
+        app:layout_constraintEnd_toStartOf="@+id/quantityCounterTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/quantityCounterTextView"
+        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
+        app:srcCompat="@drawable/ic_baseline_subtract_24"
+        app:tint="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/increaseButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/green"
+        android:contentDescription="@string/gasoline_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/quantityCounterTextView"
+        app:layout_constraintTop_toTopOf="@id/quantityCounterTextView"
+        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        app:tint="@android:color/white" />
+
+    <TextView
+        android:id="@+id/userPhoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_phone_number_label"
+        android:textSize="@dimen/input_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/userPhoneNumberEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText" />
+
+    <EditText
+        android:id="@+id/userPhoneNumberEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="@dimen/panel_margin"
+        android:autofillHints="@string/signup_phone_number_hint"
+        android:hint="@string/signup_phone_number_hint"
+        android:digits="+0123456789"
+        android:ems="10"
+        android:inputType="phone"
+        android:clickable="false"
+        android:enabled="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/gasolineTotalTextView" />
+
+    <ImageView
+        android:id="@+id/phoneNumberEditButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/edit_phone_number"
+        app:layout_constraintStart_toEndOf="@id/userPhoneNumberEditText"
+        app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText"
+        app:layout_constraintBottom_toBottomOf="@id/userPhoneNumberEditText"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <TextView
+        android:id="@+id/userAddressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_address_label"
+        android:textSize="@dimen/input_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/userAddressEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/userAddressEditText" />
+
+    <EditText
+        android:id="@+id/userAddressEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="@dimen/input_field_margin"
+        android:autofillHints="@string/signup_address_hint"
+        android:hint="@string/signup_address_hint"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:lines="2"
+        android:maxLines="3"
+        android:clickable="false"
+        android:enabled="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/userPhoneNumberEditText" />
+
+    <ImageView
+        android:id="@+id/addressEditButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/edit_address"
+        app:layout_constraintStart_toEndOf="@id/userAddressEditText"
+        app:layout_constraintTop_toTopOf="@id/userAddressEditText"
+        app:layout_constraintBottom_toBottomOf="@id/userAddressEditText"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@color/red"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/proceedButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAddressEditText" />
+
+    <Button
+        android:id="@+id/proceedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:enabled="false"
+        android:text="@string/proceed"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton"
+        app:layout_constraintTop_toTopOf="@+id/cancelButton" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+</androidx.constraintlayout.widget.ConstraintLayout>

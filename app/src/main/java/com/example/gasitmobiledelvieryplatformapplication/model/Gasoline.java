@@ -1,6 +1,8 @@
-package com.example.gasitmobiledelvieryplatformapplication.models;
+package com.example.gasitmobiledelvieryplatformapplication.model;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Gasoline {
+public class Gasoline implements Parcelable {
     private static final String FIREBASE_NODE = "Gasoline";
     private static final String FIREBASE_STORAGE = "Gasoline Images";
     private final FirebaseStorage firebaseStorageReference = FirebaseStorage
@@ -39,6 +41,17 @@ public class Gasoline {
         gasolineMap = new HashMap<>();
     }
 
+    /**
+     * For reducing stock after order.
+     */
+    public Gasoline(String uid, int newStock) {
+        this.uid = uid;
+        this.stock = newStock;
+
+        gasolineMap = new HashMap<>();
+        gasolineMap.put("stock", stock);
+    }
+
     public Gasoline(String name, float weight, int price, int stock) {
         /* Image URL will be passed using setter since it is using an async call. */
         this.name = name;
@@ -52,6 +65,34 @@ public class Gasoline {
         gasolineMap.put("price", price);
         gasolineMap.put("stock", stock);
     }
+
+    protected Gasoline(Parcel in) {
+        uid = in.readString();
+        imageUrl = in.readString();
+        name = in.readString();
+        weight = in.readFloat();
+        price = in.readInt();
+        stock = in.readInt();
+
+        gasolineMap = new HashMap<>();
+        gasolineMap.put("imageUrl", imageUrl);
+        gasolineMap.put("name", name);
+        gasolineMap.put("weight", weight);
+        gasolineMap.put("price", price);
+        gasolineMap.put("stock", stock);
+    }
+
+    public static final Creator<Gasoline> CREATOR = new Creator<Gasoline>() {
+        @Override
+        public Gasoline createFromParcel(Parcel in) {
+            return new Gasoline(in);
+        }
+
+        @Override
+        public Gasoline[] newArray(int size) {
+            return new Gasoline[size];
+        }
+    };
 
     public String getUid() {   return uid;    }
     public String getImageUrl() {   return imageUrl;    }
@@ -69,6 +110,31 @@ public class Gasoline {
     public void setName(String name) {
         this.name = name;
         gasolineMap.put("name", name);
+    }
+
+    public void readOne(String uid, ItemRequestCallback<Gasoline> callback) {
+        databaseReference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Gasoline gasoline;
+
+                // Guard to secure that child node exist.
+                // And assign the child node and check if gasoline is not null.
+                if (snapshot.getValue() == null ||
+                        (gasoline = snapshot.getValue(Gasoline.class)) == null) {
+                    callback.onSuccess(null);
+                    return;
+                }
+
+                gasoline.setUid(snapshot.getKey());
+                callback.onSuccess(gasoline);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onFailure(error.getMessage());
+            }
+        });
     }
 
     public void readAll(ListItemRequestCallback<Gasoline> callback) {
@@ -111,7 +177,7 @@ public class Gasoline {
         if (uid == null) callback.onFailure("UID is missing.");
 
         databaseReference.child(uid).removeValue((error, ref) -> {
-            if (error == null) callback.onSuccess("Gasoline is successfully deleted.");
+            if (error == null) callback.onSuccess(getName() + " is successfully deleted.");
             else callback.onFailure(error.getMessage());
         });
     }
@@ -140,5 +206,20 @@ public class Gasoline {
 
     public void generateUid() {
         setUid(databaseReference.push().getKey());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uid);
+        dest.writeString(imageUrl);
+        dest.writeString(name);
+        dest.writeFloat(weight);
+        dest.writeInt(price);
+        dest.writeInt(stock);
     }
 }

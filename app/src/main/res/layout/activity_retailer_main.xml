@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".CustomerMainActivity">
+
+    <TextView
+        android:id="@+id/fragmentTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:text="@string/title_home"
+        android:textColor="@color/white"
+        android:textSize="@dimen/subtitle_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentTitleTextView" />
+
+    <TextView
+        android:id="@+id/pendingNotificationTextView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="@string/notification"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:background="@drawable/notification"
+        android:translationZ="10dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/pendingNotificationGuideline"
+        app:layout_constraintTop_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"/>
+
+    <TextView
+        android:id="@+id/shippingNotificationTextView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="@string/notification"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:background="@drawable/notification"
+        android:translationZ="10dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/shippingNotificationGuideline"
+        app:layout_constraintTop_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"/>
+
+    <TextView
+        android:id="@+id/deliveredNotificationTextView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="@string/notification"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:background="@drawable/notification"
+        android:translationZ="10dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@id/deliveredNotificationGuideline"
+        app:layout_constraintTop_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        app:itemIconTint="@color/nav_item"
+        app:itemTextColor="@color/nav_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/retailer_bottom_navigation" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/pendingNotificationGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/shippingNotificationGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.535" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/deliveredNotificationGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.73" />
+</androidx.constraintlayout.widget.ConstraintLayout>

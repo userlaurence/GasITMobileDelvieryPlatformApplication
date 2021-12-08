@@ -1,4 +1,4 @@
-package com.example.gasitmobiledelvieryplatformapplication.models;
+package com.example.gasitmobiledelvieryplatformapplication.model;
 
 import androidx.annotation.NonNull;
 
@@ -103,9 +103,14 @@ public class User {
         userMap.put("uid", uid);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-        userMap.put("email", email);
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        userMap.put("phoneNumber", phoneNumber);
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+        userMap.put("address", address);
     }
 
     public void setPassword(String password) {
@@ -122,16 +127,43 @@ public class User {
         return ROLE_ADMIN.equals(getRole());
     }
 
+    public void readAuthenticatedUser(ItemRequestCallback<User> callback) {
+        if (!checkUserSession()) {
+            callback.onFailure("User is not authenticated.");
+            return;
+        }
+
+        databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+
+                if (user != null) setUid(snapshot.getKey());
+
+                // Return regardless if null or not.
+                callback.onSuccess(user);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callback.onFailure(error.getMessage());
+            }
+        });
+    }
+
     public void readAuthenticatedUser(SimpleRequestCallback callback) {
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
+                String fullName = "User";
+
                 if (user != null) {
                     setUid(snapshot.getKey());
                     setRole(user.getRole());
+                    fullName = user.getFullName();
                 }
-                callback.onSuccess(user.getFullName() + " successfully signed in.");
+                callback.onSuccess(fullName + " successfully signed in.");
             }
 
             @Override

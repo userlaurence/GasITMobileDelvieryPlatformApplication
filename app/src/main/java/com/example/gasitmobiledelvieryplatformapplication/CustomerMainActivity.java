@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.gasitmobiledelvieryplatformapplication.fragment.LocationFragment;
-import com.example.gasitmobiledelvieryplatformapplication.fragment.OrderFragment;
+import com.example.gasitmobiledelvieryplatformapplication.fragment.CustomerHomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CustomerMainActivity extends AppCompatActivity {
@@ -17,14 +17,14 @@ public class CustomerMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_main);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,
-                new OrderFragment()).commit();
+                new CustomerHomeFragment()).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment;
 
             int id = item.getItemId();
-            if (id == R.id.navOrder)    selectedFragment = new OrderFragment();
+            if (id == R.id.navOrder)    selectedFragment = new CustomerHomeFragment();
             else if (id == R.id.navMap) selectedFragment = new LocationFragment();
             else return false;
 

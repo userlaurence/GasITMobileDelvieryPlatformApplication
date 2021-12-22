@@ -11,14 +11,21 @@ import androidx.fragment.app.DialogFragment;
 import com.example.gasitmobiledelvieryplatformapplication.R;
 
 public class CancelConfirmationDialogFragment extends DialogFragment {
+    /**
+     * Alert Dialog for Cancelling Creating Gasoline List...
+     **/
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         return new AlertDialog.Builder(requireContext())
                 .setMessage(getString(R.string.gasoline_cancel_create))
-                .setPositiveButton(getString(R.string.ok), (dialog, which) -> {} )
+                .setPositiveButton(getString(R.string.ok), (dialog, which) -> {
+                })
                 .create();
     }
 
     public static String TAG = "CancelConfirmationDialogFragment";
+    /**
+     * Alert Dialog for Cancelling Creating Gasoline List...
+     **/
 }

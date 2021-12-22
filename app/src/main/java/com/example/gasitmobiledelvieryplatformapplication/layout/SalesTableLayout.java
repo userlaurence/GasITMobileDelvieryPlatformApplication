@@ -17,6 +17,7 @@ public class SalesTableLayout extends TableLayout {
     private final HashMap<String, Sales> salesMap;
     private final static String[] headers = {"Gasoline", "Sold", "Stocks", "Sales"};
 
+    // Setting the Sales Table Layout...
     public SalesTableLayout(Context context) {
         super(context);
         initLayout();
@@ -25,6 +26,7 @@ public class SalesTableLayout extends TableLayout {
         clearItems();
     }
 
+    // Initialization of Sales Layout...
     private void initLayout() {
         setLayoutParams(new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -32,6 +34,7 @@ public class SalesTableLayout extends TableLayout {
         setScrollContainer(true);
     }
 
+    // Adding Table Item Sales...
     public void addTableItem(Sales tableItem, int stocks) {
         boolean alreadyInMap = salesMap.containsKey(tableItem.getGasoline());
         Sales mapSalesItem;
@@ -52,17 +55,20 @@ public class SalesTableLayout extends TableLayout {
         salesMap.put(tableItem.getGasoline(), mapSalesItem);
     }
 
+    // Clearing Items...
     public void clearItems() {
         removeAllViewsInLayout();
         generateHeader();
         salesMap.clear();
     }
 
+    // Empty Sales...
     public void onEmptySales() {
         removeAllViewsInLayout();
         addView(createRow(new String[]{"No record has been found."}, false), 0);
     }
 
+    // Sales Item for each Index...
     private void setSalesItem(Sales mapSalesItem) {
         final int INDEX_SOLD = 1;
         final int INDEX_SALES = 3;
@@ -73,8 +79,9 @@ public class SalesTableLayout extends TableLayout {
                 .setText(Formatter.formatMoneyWithPesoSign(mapSalesItem.getSales()));
     }
 
+    // Adding Item Sales...
     private void addSalesItem(Sales salesItem, int stocks) {
-        String[] columnTexts = new String[] {
+        String[] columnTexts = new String[]{
                 salesItem.getGasoline(),
                 String.valueOf(salesItem.getQuantitySold()),
                 String.valueOf(stocks),
@@ -84,10 +91,12 @@ public class SalesTableLayout extends TableLayout {
         addView(createRow(columnTexts, false));
     }
 
+    // Generating Header...
     private void generateHeader() {
         addView(createRow(headers, true));
     }
 
+    // Creating Rows...
     private TableRow createRow(String[] columnTexts, boolean isHeader) {
         TableRow tableRow = new TableRow(getContext());
 
@@ -97,6 +106,7 @@ public class SalesTableLayout extends TableLayout {
         return tableRow;
     }
 
+    // Creating Columns...
     private TextView createColumn(String text, boolean isHeader) {
         TextView textView = new TextView(getContext());
         textView.setText(text);

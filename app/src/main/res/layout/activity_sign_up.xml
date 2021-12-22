@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/colorAccent"
     android:padding="@dimen/fragment_padding">
 
     <ImageButton
         android:id="@+id/goBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/light_blue"
+        android:contentDescription="@string/go_back"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:background="@android:color/transparent"
+        android:paddingStart="10sp"
+        android:paddingEnd="0sp"
         android:src="@drawable/ic_baseline_arrow_back_ios_24"
-        android:contentDescription="@string/go_back"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,8 +29,8 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:includeFontPadding="false"
         android:text="@string/signup"
-        android:textSize="@dimen/title_text_size"
         android:textColor="@color/white"
+        android:textSize="@dimen/title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +42,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpTextView" >
+        app:layout_constraintTop_toBottomOf="@+id/signUpTextView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -49,18 +53,18 @@
                 android:id="@+id/firstPanelConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/panel_background"
+                android:background="@color/colorAccent"
                 android:padding="@dimen/card_view_padding"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/userFirstNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_first_name_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userFirstNameEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userFirstNameEditText" />
@@ -69,22 +73,23 @@
                     android:id="@+id/userFirstNameEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:autofillHints="@string/signup_first_name_hint"
-                    android:hint="@string/signup_first_name_hint"
                     android:ems="10"
+                    android:hint="@string/signup_first_name_hint"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
+
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/userLastNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_last_name_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userLastNameEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userLastNameEditText" />
@@ -93,12 +98,12 @@
                     android:id="@+id/userLastNameEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:autofillHints="@string/signup_last_name_hint"
-                    android:hint="@string/signup_last_name_hint"
                     android:ems="10"
+                    android:hint="@string/signup_last_name_hint"
                     android:inputType="textPersonName"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userFirstNameEditText" />
@@ -108,8 +113,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_phone_number_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userPhoneNumberEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText" />
@@ -118,13 +123,13 @@
                     android:id="@+id/userPhoneNumberEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:autofillHints="@string/signup_phone_number_hint"
-                    android:hint="@string/signup_phone_number_hint"
                     android:digits="+0123456789"
                     android:ems="10"
+                    android:hint="@string/signup_phone_number_hint"
                     android:inputType="phone"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userLastNameEditText" />
@@ -134,8 +139,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_address_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userAddressEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userAddressEditText" />
@@ -144,14 +149,14 @@
                     android:id="@+id/userAddressEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:autofillHints="@string/signup_address_hint"
-                    android:hint="@string/signup_address_hint"
                     android:ems="10"
+                    android:hint="@string/signup_address_hint"
                     android:inputType="textPostalAddress"
                     android:lines="2"
                     android:maxLines="3"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/firstPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userPhoneNumberEditText" />
@@ -168,22 +173,22 @@
                 android:id="@+id/secondPanelConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/panel_background"
-                android:padding="@dimen/card_view_padding"
                 android:layout_marginTop="@dimen/panel_margin"
-                app:layout_constraintTop_toBottomOf="@id/firstPanelConstraintLayout"
-                app:layout_constraintStart_toStartOf="parent">
+                android:background="@color/colorAccent"
+                android:padding="@dimen/card_view_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/firstPanelConstraintLayout">
 
                 <TextView
                     android:id="@+id/userGenderTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_gender_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/userGenderRadioGroup"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/userGenderRadioGroup"
-                    app:layout_constraintBottom_toBottomOf="@id/userGenderRadioGroup"/>
+                    app:layout_constraintTop_toTopOf="@id/userGenderRadioGroup" />
 
                 <RadioGroup
                     android:id="@+id/userGenderRadioGroup"
@@ -197,25 +202,29 @@
                         android:id="@+id/userGenderMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:buttonTint="@color/light_blue"
                         android:minHeight="48dp"
-                        android:text="@string/signup_gender_male" />
+                        android:text="@string/signup_gender_male"
+                        android:textColor="@color/white"
+                        android:textColorHighlight="#000000" />
 
                     <RadioButton
                         android:id="@+id/userGenderFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:buttonTint="@color/light_blue"
                         android:minHeight="48dp"
-                        android:text="@string/signup_gender_female" />
+                        android:text="@string/signup_gender_female"
+                        android:textColor="@color/white" />
 
                     <RadioButton
                         android:id="@+id/userGenderPreferNotToSay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:buttonTint="@color/light_blue"
                         android:minHeight="48dp"
-                        android:text="@string/signup_gender_prefer_not_to_say" />
+                        android:text="@string/signup_gender_prefer_not_to_say"
+                        android:textColor="@color/white" />
                 </RadioGroup>
 
                 <TextView
@@ -223,8 +232,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_age_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userAgeEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userAgeEditText" />
@@ -233,12 +242,13 @@
                     android:id="@+id/userAgeEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:autofillHints="@string/signup_age_hint"
-                    android:hint="@string/signup_age_hint"
                     android:ems="5"
+                    android:hint="@string/signup_age_hint"
+
                     android:inputType="number"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/secondPanelGuideline"
                     app:layout_constraintTop_toBottomOf="@id/userGenderRadioGroup" />
@@ -248,26 +258,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.20" />
+                    app:layout_constraintGuide_percent="0.22704081" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/thirdPanelConstraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/panel_background"
-                android:padding="@dimen/card_view_padding"
                 android:layout_marginTop="@dimen/panel_margin"
-                app:layout_constraintTop_toBottomOf="@id/secondPanelConstraintLayout"
-                app:layout_constraintStart_toStartOf="parent">
+                android:background="@color/colorAccent"
+                android:padding="@dimen/card_view_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/secondPanelConstraintLayout">
 
                 <TextView
                     android:id="@+id/userEmailTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_email_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userEmailEditText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/userEmailEditText" />
@@ -276,11 +286,11 @@
                     android:id="@+id/userEmailEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="48dp"
                     android:autofillHints="@string/signup_email_hint"
-                    android:hint="@string/signup_email_hint"
                     android:ems="10"
+                    android:hint="@string/signup_email_hint"
                     android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
                     app:layout_constraintTop_toTopOf="@id/thirdPanelConstraintLayout" />
@@ -290,8 +300,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_password_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userPasswordTextInputLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/userPasswordTextInputLayout" />
@@ -302,21 +312,22 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     app:boxBackgroundMode="none"
-                    app:passwordToggleEnabled="true"
-                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userEmailEditText">
+                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userEmailEditText"
+                    app:passwordToggleEnabled="true">
 
                     <EditText
                         android:id="@+id/userPasswordEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:minHeight="48dp"
                         android:autofillHints="@string/signup_password_hint"
-                        android:hint="@string/signup_password_hint"
                         android:ems="10"
+                        android:hint="@string/signup_password_hint"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
                         android:textColor="@color/white"
-                        android:inputType="textPassword" />
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -325,10 +336,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/input_field_margin"
                     android:text="@string/signup_confirm_password_label"
-                    android:textSize="@dimen/input_text_size"
                     android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="@dimen/input_text_size"
                     app:layout_constraintBaseline_toBaselineOf="@id/userConfirmPasswordTextInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -336,21 +347,22 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:boxBackgroundMode="none"
-                    app:passwordToggleEnabled="true"
-                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout">
+                    app:layout_constraintStart_toStartOf="@id/thirdPanelGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/userPasswordTextInputLayout"
+                    app:passwordToggleEnabled="true">
 
                     <EditText
                         android:id="@+id/userConfirmPasswordEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="48dp"
                         android:autofillHints="@string/signup_confirm_password_hint"
-                        android:hint="@string/signup_confirm_password_hint"
                         android:ems="10"
+                        android:hint="@string/signup_confirm_password_hint"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
                         android:textColor="@color/white"
-                        android:inputType="textPassword" />
+                        tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.constraintlayout.widget.Guideline
@@ -358,7 +370,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.4" />
+                    app:layout_constraintGuide_percent="0.41581634" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
@@ -366,13 +378,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@color/green"
+                android:background="@color/light_blue"
                 android:minWidth="300dp"
                 android:text="@string/signup"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
-                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/thirdPanelConstraintLayout" />

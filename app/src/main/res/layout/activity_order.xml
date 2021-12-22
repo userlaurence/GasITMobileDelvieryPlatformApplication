@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/colorAccent"
     android:padding="@dimen/fragment_padding">
 
     <ImageView
@@ -24,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/gasoline_name"
-        android:textSize="@dimen/title_text_size"
         android:textColor="@color/white"
+        android:textSize="@dimen/title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gasolineImageView" />
@@ -36,10 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/input_field_margin"
         android:text="@string/gasoline_price"
-        android:textSize="@dimen/subtitle_text_size"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
+        android:textSize="@dimen/subtitle_text_size"
         app:layout_constraintEnd_toEndOf="@id/gasolineNameTextView"
+        app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
         app:layout_constraintTop_toBottomOf="@+id/gasolineNameTextView" />
 
     <TextView
@@ -48,8 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/gasoline_total"
-        android:textSize="@dimen/input_text_size"
         android:textColor="@color/white"
+        android:textSize="@dimen/input_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gasolineStockTextView" />
 
@@ -59,23 +60,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/gasoline_stock"
-        android:textColor="@color/green"
+        android:textColor="@color/white"
         android:textSize="@dimen/information_text_size"
-        app:layout_constraintStart_toStartOf="@+id/quantityCounterTextView"
         app:layout_constraintEnd_toEndOf="@+id/quantityCounterTextView"
+        app:layout_constraintStart_toStartOf="@+id/quantityCounterTextView"
         app:layout_constraintTop_toBottomOf="@+id/quantityCounterTextView" />
 
     <TextView
         android:id="@+id/quantityCounterTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="50dp"
+        android:layout_marginTop="@dimen/input_field_margin"
         android:gravity="center"
+        android:minWidth="50dp"
         android:text="@string/gasoline_how_many"
         android:textAlignment="center"
-        android:textSize="@dimen/subtitle_text_size"
-        android:layout_marginTop="@dimen/input_field_margin"
         android:textColor="@color/white"
+        android:textSize="@dimen/subtitle_text_size"
         app:layout_constraintEnd_toStartOf="@+id/increaseButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/decreaseButton"
@@ -87,12 +88,12 @@
         android:layout_height="32dp"
         android:background="@color/red"
         android:contentDescription="@string/gasoline_image"
+        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
         app:layout_constraintEnd_toStartOf="@+id/quantityCounterTextView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/quantityCounterTextView"
-        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
         app:srcCompat="@drawable/ic_baseline_subtract_24"
         app:tint="@android:color/white" />
 
@@ -102,11 +103,11 @@
         android:layout_height="32dp"
         android:background="@color/green"
         android:contentDescription="@string/gasoline_image"
+        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/quantityCounterTextView"
         app:layout_constraintTop_toTopOf="@id/quantityCounterTextView"
-        app:layout_constraintBottom_toBottomOf="@id/quantityCounterTextView"
         app:srcCompat="@drawable/ic_baseline_add_24"
         app:tint="@android:color/white" />
 
@@ -115,8 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_phone_number_label"
-        android:textSize="@dimen/input_text_size"
         android:textColor="@color/white"
+        android:textSize="@dimen/input_text_size"
         app:layout_constraintBaseline_toBaselineOf="@id/userPhoneNumberEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText" />
@@ -125,15 +126,15 @@
         android:id="@+id/userPhoneNumberEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
         android:layout_marginTop="@dimen/panel_margin"
         android:autofillHints="@string/signup_phone_number_hint"
-        android:hint="@string/signup_phone_number_hint"
+        android:clickable="false"
         android:digits="+0123456789"
         android:ems="10"
-        android:inputType="phone"
-        android:clickable="false"
         android:enabled="false"
+        android:hint="@string/signup_phone_number_hint"
+        android:inputType="phone"
+        android:minHeight="48dp"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/gasolineTotalTextView" />
@@ -144,9 +145,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:contentDescription="@string/edit_phone_number"
+        app:layout_constraintBottom_toBottomOf="@id/userPhoneNumberEditText"
         app:layout_constraintStart_toEndOf="@id/userPhoneNumberEditText"
         app:layout_constraintTop_toTopOf="@id/userPhoneNumberEditText"
-        app:layout_constraintBottom_toBottomOf="@id/userPhoneNumberEditText"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     <TextView
@@ -154,8 +155,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_address_label"
-        android:textSize="@dimen/input_text_size"
         android:textColor="@color/white"
+        android:textSize="@dimen/input_text_size"
         app:layout_constraintBaseline_toBaselineOf="@id/userAddressEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/userAddressEditText" />
@@ -164,16 +165,16 @@
         android:id="@+id/userAddressEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
         android:layout_marginTop="@dimen/input_field_margin"
         android:autofillHints="@string/signup_address_hint"
-        android:hint="@string/signup_address_hint"
+        android:clickable="false"
         android:ems="10"
+        android:enabled="false"
+        android:hint="@string/signup_address_hint"
         android:inputType="textPostalAddress"
         android:lines="2"
         android:maxLines="3"
-        android:clickable="false"
-        android:enabled="false"
+        android:minHeight="48dp"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/userPhoneNumberEditText" />
@@ -184,9 +185,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:contentDescription="@string/edit_address"
+        app:layout_constraintBottom_toBottomOf="@id/userAddressEditText"
         app:layout_constraintStart_toEndOf="@id/userAddressEditText"
         app:layout_constraintTop_toTopOf="@id/userAddressEditText"
-        app:layout_constraintBottom_toBottomOf="@id/userAddressEditText"
         app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     <Button
@@ -200,7 +201,8 @@
         app:layout_constraintEnd_toStartOf="@+id/proceedButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userAddressEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/userAddressEditText"
+        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/proceedButton"
@@ -213,7 +215,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancelButton"
-        app:layout_constraintTop_toTopOf="@+id/cancelButton" />
+        app:layout_constraintTop_toTopOf="@+id/cancelButton"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ProgressBar
         android:id="@+id/progressBar"

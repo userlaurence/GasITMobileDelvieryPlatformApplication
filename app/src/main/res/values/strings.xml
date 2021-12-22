@@ -198,4 +198,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="sample_text">Sample Text</string>
+    <string name="signup_role_label">Account Role</string>
+    <string name="signup_role_retailer">Retailer</string>
+    <string name="signup_role_customer">Customer</string>
+    <string name="nav_sign_out">Sign Out</string>
 </resources>

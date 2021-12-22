@@ -15,6 +15,7 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback {
 
     com.google.android.gms.maps.GoogleMap map;
 
+    // Map Synchronization Process...
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class GoogleMap extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
+    // Map Locator...
     @Override
     public void onMapReady(com.google.android.gms.maps.GoogleMap googleMap) {
 

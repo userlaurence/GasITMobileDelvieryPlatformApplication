@@ -50,6 +50,7 @@ public class RetailerHomeFragment extends Fragment {
 
         initData();
 
+        // Refreshes Fragment Holder for Retailer...
         refreshFragmentActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -58,12 +59,14 @@ public class RetailerHomeFragment extends Fragment {
                     initData();
                 });
 
+        // Floating Action Button for Adding Gasoline...
         FloatingActionButton fabCreateGasoline = rootView.findViewById(R.id.fabCreateGasoline);
         fabCreateGasoline.setOnClickListener(view -> goToCreateGasoline(null));
 
         return rootView;
     }
 
+    // Item Lists Data...
     private void initData() {
         progressBar.setVisibility(View.VISIBLE);
 
@@ -82,6 +85,7 @@ public class RetailerHomeFragment extends Fragment {
         });
     }
 
+    // Empty List Data, Directly Initiate Gasoline Creation Screen Activity...
     private void onDataEmpty() {
         if (getActivity() == null) return;
         Toasty.info(getActivity(),
@@ -90,12 +94,14 @@ public class RetailerHomeFragment extends Fragment {
         goToCreateGasoline(null);
     }
 
+    // Reads Item Data from Database and Displays as a List...
     private void onDataInitializedSuccess(List<Gasoline> gasolineList) {
         GasolineAdapter gasolineAdapter = new GasolineAdapter(true, gasolineList);
         gasolineAdapter.setOnClickListener(this::goToCreateGasoline);
         recyclerView.setAdapter(gasolineAdapter);
     }
 
+    // Toast Error Message for Failure and Errors...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
 
@@ -103,6 +109,7 @@ public class RetailerHomeFragment extends Fragment {
         Toasty.error(getActivity(), error, Toasty.LENGTH_SHORT).show();
     }
 
+    // Transfer to Creating Gasoline Screen Activity...
     private void goToCreateGasoline(Gasoline parcelGasoline) {
         Intent intent = new Intent(getActivity(), CreateGasolineActivity.class);
         if (parcelGasoline != null)

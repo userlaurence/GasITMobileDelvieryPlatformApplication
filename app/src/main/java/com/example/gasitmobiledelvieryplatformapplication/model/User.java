@@ -38,16 +38,15 @@ public class User {
     private int age;
     private String email;
     private String password;
-    private String role; // Can't be initialized using constructor.
+    private String role; // Can't be Initialized Using Constructor
 
+    // Use for User Session...
     public User() {
         userMap = new HashMap<>();
         checkUserSession();
     }
 
-    /**
-     * Used for Sign in.
-     */
+    // Use for Signing In...
     public User(String email, String password) {
         this.email = email;
         this.password = password;
@@ -58,8 +57,8 @@ public class User {
     }
 
     /**
-     * Used for Signup.
-     */
+     * Use for Sign Up / Registration...
+     **/
     public User(String firstName, String lastName, String phoneNumber, String address,
                 String gender, int age, String email, String password) {
         this.firstName = firstName;
@@ -72,6 +71,7 @@ public class User {
 
         this.email = email;
         this.password = password;
+        this.role = role;
 
         userMap = new HashMap<>();
         userMap.put("firstName", firstName);
@@ -84,19 +84,52 @@ public class User {
 
         userMap.put("email", email);
         userMap.put("password", password);
+        // userMap.put("role", role);
     }
 
-    public String getUid() {   return uid;    }
-    public String getFirstName() {   return firstName;    }
-    public String getLastName() {   return lastName;    }
-    public String getPhoneNumber() {    return phoneNumber; }
-    public String getAddress() {  return address;   }
-    public String getGender() {  return gender;   }
-    public int getAge() {  return age;   }
-    public String getEmail() {  return email;   }
-    public String getPassword() {   return password;    }
-    public String getRole() {   return role;    }
-    public String getFullName() {   return firstName + " " + lastName;    }
+    public String getUid() {
+        return uid;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 
     public void setUid(String uid) {
         this.uid = uid;
@@ -123,13 +156,19 @@ public class User {
         userMap.put("role", role);
     }
 
+    /**
+     * Use for Sign Up / Registration...
+     **/
+
+    // Use for Retailer (Admin) User...
     public boolean isAdmin() {
         return ROLE_ADMIN.equals(getRole());
     }
 
+    // Use for User Authentication on Item(s)...
     public void readAuthenticatedUser(ItemRequestCallback<User> callback) {
         if (!checkUserSession()) {
-            callback.onFailure("User is not authenticated.");
+            callback.onFailure("User is not Authenticated.");
             return;
         }
 
@@ -140,7 +179,7 @@ public class User {
 
                 if (user != null) setUid(snapshot.getKey());
 
-                // Return regardless if null or not.
+                // Return Regardless if Null or Not.
                 callback.onSuccess(user);
             }
 
@@ -151,6 +190,7 @@ public class User {
         });
     }
 
+    // Use for User Authentication when Logging In...
     public void readAuthenticatedUser(SimpleRequestCallback callback) {
         databaseReference.child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -173,26 +213,28 @@ public class User {
         });
     }
 
+    // Use for Database Authentication via Email & Password only...
     public void signInWithEmailAndPassword(SimpleRequestCallback callback) {
         if (getEmail() == null || getPassword() == null)
-            return; // Make sure to use constructor for sign in.
+            return; // Make Sure to Use Constructor for Sign In.
 
         firebaseAuth.signInWithEmailAndPassword(getEmail(), getPassword())
                 .addOnCompleteListener(task -> {
                     /*
-                     * Different from this.firebaseUser since currentUser is the newly created
-                     * user and may not be the same with this.firebaseUser if an error occurs.
+                     * Different from this.firebaseUser since currentUser is the Newly Created
+                     * User and may not be the same with this.firebaseUser if an Error Occurs.
                      */
                     firebaseUser = firebaseAuth.getCurrentUser();
 
                     if (!task.isSuccessful() || firebaseUser == null) {
-                        callback.onFailure("Failed to login! Please check your credentials.");
+                        callback.onFailure("Incorrect Input, Please Re-enter Account Email/Password.");
+                        // callback.onFailure("Failed to Login! Please check your credentials.");
                         return;
                     }
 
                     if (!firebaseUser.isEmailVerified()) {
                         firebaseUser.sendEmailVerification();
-                        callback.onFailure("Check your email to verify your account. Then try again.");
+                        callback.onFailure("Check your Email to Verify your Account. Then Try Again.");
                         return;
                     }
 
@@ -200,6 +242,7 @@ public class User {
                 });
     }
 
+    // Use for Facebook and Google Credentials...
     private void signInWithCredential(AuthCredential authCredential, SimpleRequestCallback callback) {
         firebaseAuth.signInWithCredential(authCredential)
                 .addOnCompleteListener(task -> {
@@ -213,35 +256,38 @@ public class User {
                 });
     }
 
+    // Use for Signing In via Facebook...
     public void signInWithFacebook(AccessToken accessToken, SimpleRequestCallback callback) {
         AuthCredential authCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
         signInWithCredential(authCredential, callback);
     }
 
+    // Use for Signing In via Google...
     public void signInWithGoogle(String idToken, SimpleRequestCallback callback) {
         AuthCredential authCredential = GoogleAuthProvider.getCredential(idToken, null);
         signInWithCredential(authCredential, callback);
     }
 
+    // Use for Database Account Registration...
     public void signUp(SimpleRequestCallback callback) {
         firebaseAuth.createUserWithEmailAndPassword(getEmail(), getPassword())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         setPassword(null); /* So that it won't be seen in write(). */
                         /*
-                         * All users using the signup are customers.
-                         * Admin are assign directly on Firebase and must communicate
-                         * with the Database admin.
+                         * All Users Using the SignUp are Customers.
+                         * Retailer (Admin) are Assign Directly on Firebase and must Communicate
+                         * with the Database Admin.
                          */
                         setRole(ROLE_CUSTOMER);
-                        callback.onSuccess(getFirstName() + " successfully created. " +
-                                "Please check your email to verify your account.");
-                    }
-                    else if (task.getException() != null)
+                        callback.onSuccess(getFirstName() + " Successfully Created. " +
+                                "Please Check Your Email to Verify Your Account.");
+                    } else if (task.getException() != null)
                         callback.onFailure(task.getException().getMessage());
                 });
     }
 
+    // Use for Clearing Active Account Session...
     public void signOut() {
         if (!checkUserSession())
             return;
@@ -249,16 +295,27 @@ public class User {
         firebaseAuth.signOut();
     }
 
+    // Use for Button Signing Out Current Active Account...
+    public void signOutCurrent(SimpleRequestCallback callback) {
+        if (checkUserSession()) {
+            callback.onSuccess("Successfully Signed Out");
+            return;
+        }
+
+        firebaseAuth.signOut();
+    }
+
+    // Use for Writing Account being Registered to Database...
     public void write(SimpleRequestCallback callback) {
         if (!checkUserSession()) {
-            /* Must call signup first before calling write to create the uid. */
-            callback.onFailure("UID is missing.");
+            /* Must Call SignUp First Before Calling Write to Create the User ID. */
+            callback.onFailure("UID is Missing.");
             return;
         }
 
         if (getPassword() != null) {
             firebaseUser.updatePassword(getPassword());
-            // Prevents from write "password" in User node.
+            // Prevents from Write "password" in User node.
             userMap.remove("password");
         }
 
@@ -271,19 +328,21 @@ public class User {
         });
     }
 
+    // Use for Resetting Password...
     public void resetPassword(SimpleRequestCallback callback) {
         if (getEmail() == null)
-            callback.onFailure("Email has not been set. Please try again.");
+            callback.onFailure("Email Has Not Been Set. Please Try Again.");
 
         firebaseAuth.sendPasswordResetEmail(getEmail())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful())
-                        callback.onSuccess("Check your email for the reset password link.");
+                        callback.onSuccess("Check Your Email for the Reset Password Link.");
                     else if (task.getException() != null)
                         callback.onFailure(task.getException().getMessage());
                 });
     }
 
+    // Use for Checking Session of User...
     public boolean checkUserSession() {
         if (firebaseAuth.getCurrentUser() == null)
             return false;
@@ -293,11 +352,12 @@ public class User {
         return true;
     }
 
+    // Use for Account Deletion...
     public void delete(SimpleRequestCallback callback) {
-        if (uid == null) callback.onFailure("UID is missing.");
+        if (uid == null) callback.onFailure("UID is Missing.");
 
         databaseReference.child(uid).removeValue((error, ref) -> {
-            if (error == null) callback.onSuccess("User is successfully deleted.");
+            if (error == null) callback.onSuccess("User is Successfully Deleted.");
             else callback.onFailure(error.getMessage());
         });
     }

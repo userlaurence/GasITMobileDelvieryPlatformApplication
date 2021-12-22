@@ -10,14 +10,14 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="@string/sales_date"
-        android:textSize="@dimen/subtitle_text_size"
-        android:textColor="@color/background"
-        android:drawablePadding="10dp"
-        android:textAlignment="center"
         android:drawableEnd="@drawable/ic_baseline_calendar_24"
-        app:layout_constraintStart_toEndOf="@id/previousButton"
+        android:drawablePadding="10dp"
+        android:text="@string/sales_date"
+        android:textAlignment="center"
+        android:textColor="@color/background"
+        android:textSize="@dimen/subtitle_text_size"
         app:layout_constraintEnd_toStartOf="@id/nextButton"
+        app:layout_constraintStart_toEndOf="@id/previousButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -28,9 +28,9 @@
         android:contentDescription="@string/sales_previous"
         app:layout_constraintBottom_toBottomOf="@id/dateButton"
         app:layout_constraintEnd_toStartOf="@id/dateButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/dateButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:srcCompat="@drawable/ic_baseline_arrow_left_24"
         app:tint="@color/background" />
 
@@ -41,9 +41,9 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/sales_next"
         app:layout_constraintBottom_toBottomOf="@id/dateButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/dateButton"
         app:layout_constraintTop_toTopOf="@id/dateButton"
-        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_right_24"
         app:tint="@color/background" />
 
@@ -51,21 +51,21 @@
         android:id="@+id/showPerDateFormatTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sales_show_per"
-        android:textSize="@dimen/input_text_size"
-        android:textColor="@color/background"
         android:layout_marginStart="10dp"
+        android:text="@string/sales_show_per"
+        android:textColor="#5C6BC0"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/dateFormatSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateButton"
-        app:layout_constraintBottom_toBottomOf="@id/dateFormatSpinner" />
+        app:layout_constraintTop_toBottomOf="@id/dateButton" />
 
     <Spinner
         android:id="@+id/dateFormatSpinner"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
         android:layout_marginStart="5dp"
         android:contentDescription="@string/sales_date_format_spinner"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/showPerDateFormatTextView"
         app:layout_constraintTop_toBottomOf="@id/dateButton" />
 
@@ -74,9 +74,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:contentDescription="@string/sales_sales_table"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dateFormatSpinner" />
     <!-- Insert SalesTableLayout in the SalesFragment.java -->
 

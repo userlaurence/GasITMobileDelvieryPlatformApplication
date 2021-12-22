@@ -59,7 +59,7 @@ public class SalesFragment extends Fragment {
         ImageButton nextButton = rootView.findViewById(R.id.nextButton);
 
         salesTableLayout = new SalesTableLayout(getContext());
-        ((ScrollView)rootView.findViewById(R.id.salesTableScrollView)).addView(salesTableLayout);
+        ((ScrollView) rootView.findViewById(R.id.salesTableScrollView)).addView(salesTableLayout);
 
         long currentDate = System.currentTimeMillis();
         String dateText = DateUtil.toDateTime(currentDate).toString(DateUtil.DISPLAY_DATE_PATTERN);
@@ -74,12 +74,14 @@ public class SalesFragment extends Fragment {
         return rootView;
     }
 
+    // Toasting Error Message...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
         if (getActivity() == null) return;
         Toasty.error(getActivity(), error, Toasty.LENGTH_SHORT).show();
     }
 
+    // Date Formatter...
     private void initDateFormatSpinner() {
         ArrayList<String> dateFormatList = new ArrayList<>();
         dateFormatList.add("Day");
@@ -106,6 +108,7 @@ public class SalesFragment extends Fragment {
         });
     }
 
+    // Calendar Dialog...
     private void openCalendarDialog() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -124,36 +127,39 @@ public class SalesFragment extends Fragment {
         datePickerDialog.show();
     }
 
+    // Button function for the Next Page of Date...
     private void goTo(boolean isNext) {
         dateButton.setText(calculateNewDateStr(isNext));
         updateSales();
     }
 
+    // Calculating New Date String After Next Button is Pressed...
     private String calculateNewDateStr(boolean isNext) {
         DateUtil dateUtil = DateUtil.dateToDateTime(dateButton.getText().toString());
 
         switch (dateFormat) {
             case DAY:
                 if (isNext) dateUtil.toNextDay();
-                else        dateUtil.toPrevDay();
+                else dateUtil.toPrevDay();
                 break;
             case WEEK:
                 if (isNext) dateUtil.toNextWeek();
-                else        dateUtil.toPrevWeek();
+                else dateUtil.toPrevWeek();
                 break;
             case MONTH:
                 if (isNext) dateUtil.toNextMonth();
-                else        dateUtil.toPrevMonth();
+                else dateUtil.toPrevMonth();
                 break;
             case YEAR:
                 if (isNext) dateUtil.toNextYear();
-                else        dateUtil.toPrevYear();
+                else dateUtil.toPrevYear();
                 break;
         }
 
         return dateUtil.toString(DateUtil.DISPLAY_DATE_PATTERN);
     }
 
+    // Calculation of Day, Week, Month and Year...
     private long calculateBasedOnFormat(boolean isEnd) {
         long dateLong = DateUtil.dateToDateTime(dateButton.getText().toString()).toMills();
         DateUtil dateUtil = DateUtil.toDateTime(dateLong);
@@ -161,25 +167,26 @@ public class SalesFragment extends Fragment {
         switch (dateFormat) {
             case DAY:
                 if (isEnd) dateUtil.toEndOfDay();
-                else       dateUtil.toStartOfDay();
+                else dateUtil.toStartOfDay();
                 break;
             case WEEK:
                 if (isEnd) dateUtil.toEndOfWeek();
-                else       dateUtil.toStartOfWeek();
+                else dateUtil.toStartOfWeek();
                 break;
             case MONTH:
                 if (isEnd) dateUtil.toEndOfMonth();
-                else       dateUtil.toStartOfMonth();
+                else dateUtil.toStartOfMonth();
                 break;
             case YEAR:
                 if (isEnd) dateUtil.toEndOfYear();
-                else       dateUtil.toStartOfYear();
+                else dateUtil.toStartOfYear();
                 break;
         }
 
         return dateUtil.toMills();
     }
 
+    // Updating the Sales of Each Day...
     private void updateSales() {
         long timestamp = calculateBasedOnFormat(false);
         long upTo = calculateBasedOnFormat(true);

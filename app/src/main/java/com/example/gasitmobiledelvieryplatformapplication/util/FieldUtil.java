@@ -5,8 +5,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import es.dmoral.toasty.Toasty;
-
+// Registration Form Validations and Verification...
 public class FieldUtil {
     public static int MIN_PASSWORD_LENGTH = 8;
 

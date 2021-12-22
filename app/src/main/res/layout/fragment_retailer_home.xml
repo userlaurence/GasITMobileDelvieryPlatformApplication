@@ -12,15 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
-        android:contentDescription="@string/gasoline_create"
-        android:clickable="true"
-        android:focusable="true"
         android:backgroundTint="@color/background"
+        android:clickable="true"
+        android:contentDescription="@string/gasoline_create"
+        android:focusable="true"
         android:outlineSpotShadowColor="@null"
-        app:maxImageSize="35dp"
-        app:srcCompat="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="35dp"
+        app:srcCompat="@drawable/ic_baseline_add_24"
         tools:targetApi="p" />
 
     <androidx.recyclerview.widget.RecyclerView

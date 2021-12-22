@@ -22,15 +22,18 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
     private final List<Gasoline> gasolineArrayList;
     private OnClickListener listener;
 
+    // Getting Lists Position...
     public interface OnClickListener {
         void onClick(Gasoline gasoline);
     }
 
+    // Admin and Displays Gasoline Lists...
     public GasolineAdapter(boolean isAdmin, List<Gasoline> gasolineArrayList) {
         this.isAdmin = isAdmin;
         this.gasolineArrayList = gasolineArrayList;
     }
 
+    // Gasoline View Holder XML Layout Connection...
     @NonNull
     @Override
     public GasolineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,11 +42,13 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
         return new GasolineViewHolder(view);
     }
 
+    // Admin and Get Gasoline List Position...
     @Override
     public void onBindViewHolder(@NonNull GasolineViewHolder holder, int position) {
         holder.onBind(isAdmin, gasolineArrayList.get(position), listener);
     }
 
+    // Gather Item Count/Remaining...
     @Override
     public int getItemCount() {
         return gasolineArrayList.size();
@@ -53,12 +58,16 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
         this.listener = listener;
     }
 
+    /**
+     * Setting Up Gasoline View Holder XML Layout by Each Items...
+     **/
     public static class GasolineViewHolder extends RecyclerView.ViewHolder {
         ImageView gasolineImageView;
         TextView gasolineNameTextView, gasolinePriceTextView,
                 gasolineStockTextView, gasolineWeightTextView;
         View gasolineCardContainer;
 
+        // Gasoline View Holder XML ID's...
         public GasolineViewHolder(@NonNull View itemView) {
             super(itemView);
             gasolineCardContainer = itemView.findViewById(R.id.gasolineCardContainer);
@@ -88,17 +97,22 @@ public class GasolineAdapter extends RecyclerView.Adapter<GasolineAdapter.Gasoli
                 gasolineStockTextView.setText(R.string.gasoline_out_of_stock);
                 if (isAdmin) {
                     itemView.setOnClickListener(v -> {
-                        if (listener == null || getAdapterPosition() == RecyclerView.NO_POSITION) return;
+                        if (listener == null || getAdapterPosition() == RecyclerView.NO_POSITION)
+                            return;
                         listener.onClick(gasoline);
                     });
                 }
             } else {
                 gasolineStockTextView.setText(stockText);
                 itemView.setOnClickListener(v -> {
-                    if (listener == null || getAdapterPosition() == RecyclerView.NO_POSITION) return;
+                    if (listener == null || getAdapterPosition() == RecyclerView.NO_POSITION)
+                        return;
                     listener.onClick(gasoline);
                 });
             }
         }
     }
+    /**
+     * Setting Up Gasoline View Holder XML Layout by Each Items...
+     **/
 }

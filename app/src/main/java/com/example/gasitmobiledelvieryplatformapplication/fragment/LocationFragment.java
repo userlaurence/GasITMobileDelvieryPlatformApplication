@@ -57,7 +57,6 @@ public class LocationFragment extends Fragment {
             }
         });
 
-        //Return View...
         return view;
     }
 }

@@ -44,6 +44,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        // Google Authentication Token Management...
         callbackManager = CallbackManager.Factory.create();
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -51,12 +52,13 @@ public class SignInActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
+        // Google Authentication Sign In Client Process if User is Retailer (Admin) or Customer...
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
         googleSignInActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getData() == null) {
-                        onRequestCancel("Google authentication was cancelled.");
+                        onRequestCancel("Google Authentication was Cancelled.");
                         return;
                     }
 
@@ -83,9 +85,11 @@ public class SignInActivity extends AppCompatActivity {
                 }
         );
 
+        // Function Call for Button Event Listener...
         initViewsAndListeners();
     }
 
+    // XML Layout ID's...
     private void initViewsAndListeners() {
         progressBar = findViewById(R.id.progressBar);
 
@@ -103,30 +107,35 @@ public class SignInActivity extends AppCompatActivity {
         registerButton.setOnClickListener(v -> goToSignUp());
     }
 
+    // Successfully Verified User...
     private void onRequestSuccess(String message, boolean isAdmin) {
         progressBar.setVisibility(View.GONE);
         Toasty.success(this, message, Toasty.LENGTH_LONG).show();
         goToRoleSpecificMainActivity(isAdmin);
     }
 
+    // User Facebook/Google Authentication Cancel...
     private void onRequestCancel(String message) {
         progressBar.setVisibility(View.GONE);
         Toasty.info(this, message, Toasty.LENGTH_LONG).show();
     }
 
+    // Incorrect User Account or Error with User Authentication...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
         Toasty.error(this, error, Toasty.LENGTH_SHORT).show();
     }
 
+    // Layout Activity for Retailer (Admin) and Customer Account Authentication...
     private void goToRoleSpecificMainActivity(boolean isAdmin) {
         Class<? extends AppCompatActivity> activityClass;
-        if (isAdmin)    activityClass = RetailerMainActivity.class;
-        else            activityClass = CustomerMainActivity.class;
+        if (isAdmin) activityClass = RetailerMainActivity.class;
+        else activityClass = CustomerMainActivity.class;
         startActivity(new Intent(getApplicationContext(), activityClass));
         finish();
     }
 
+    // User Email & Password Validation...
     private User validateInputs() {
         if (FieldUtil.isEmptyEditText("Email", emailEditText) ||
                 FieldUtil.isEmptyEditText("Password", passwordEditText) ||
@@ -137,6 +146,7 @@ public class SignInActivity extends AppCompatActivity {
         return new User(emailEditText.getText().toString(), passwordEditText.getText().toString());
     }
 
+    // Sign In via Email and Password Registered on the App...
     private void signInWithEmailAndPassword() {
         User user = validateInputs();
         if (user == null) return;
@@ -155,6 +165,7 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
+    // Sign In via Facebook Authentication...
     private void signInWithFacebook() {
         progressBar.setVisibility(View.VISIBLE);
 
@@ -180,7 +191,7 @@ public class SignInActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                onRequestCancel("Facebook authentication was cancelled.");
+                onRequestCancel("Facebook Authentication was Cancelled.");
             }
 
             @Override
@@ -190,10 +201,12 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
+    // Sign In via Google Authentication...
     private void signInWithGoogle() {
         googleSignInActivityResultLauncher.launch(googleSignInClient.getSignInIntent());
     }
 
+    // Proceed to Account Registration...
     private void goToSignUp() {
         startActivity(new Intent(this, SignUpActivity.class));
     }

@@ -36,6 +36,9 @@ public class CustomerHomeFragment extends Fragment {
         super(R.layout.fragment_customer_home);
     }
 
+    /**
+     * Customer Home Fragment XML ID's...
+     **/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -48,6 +51,7 @@ public class CustomerHomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        // Initialization of Data's...
         initData();
 
         refreshFragmentActivityResultLauncher = registerForActivityResult(
@@ -60,9 +64,15 @@ public class CustomerHomeFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Customer Home Fragment XML ID's...
+     **/
+
+    // Data Initialization...
     private void initData() {
         progressBar.setVisibility(View.VISIBLE);
 
+        // Read Stock Gasoline Data...
         new Gasoline().readAll(new ListItemRequestCallback<Gasoline>() {
             @Override
             public void onSuccess(List<Gasoline> itemList) {
@@ -78,25 +88,29 @@ public class CustomerHomeFragment extends Fragment {
         });
     }
 
+    // Toast Message if Empty Lists...
     private void onDataEmpty() {
         if (getActivity() == null) return;
         Toasty.info(getActivity(),
-                "There's no gasoline yet!",
+                "There's No Gasoline Yet!",
                 Toasty.LENGTH_SHORT).show();
     }
 
+    // Displays all Gathered Gasoline Data Lists...
     private void onDataInitializedSuccess(List<Gasoline> gasolineList) {
         GasolineAdapter gasolineAdapter = new GasolineAdapter(false, gasolineList);
         gasolineAdapter.setOnClickListener(this::goToOrder);
         recyclerView.setAdapter(gasolineAdapter);
     }
 
+    // Order Interface Process via Gasoline Adapter Class...
     private void goToOrder(Gasoline gasoline) {
         Intent intent = new Intent(getActivity(), OrderActivity.class);
         intent.putExtra(OrderActivity.EXTRA_ORDER_GASOLINE_KEY, gasoline);
         refreshFragmentActivityResultLauncher.launch(intent);
     }
 
+    // Toast Message for Failure and Error Reading Data Lists...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
 

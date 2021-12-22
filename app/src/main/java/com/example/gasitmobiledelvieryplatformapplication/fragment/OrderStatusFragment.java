@@ -31,6 +31,7 @@ public class OrderStatusFragment extends Fragment {
 
     private final String orderStatus;
 
+    // Retailer Order Status Fragment...
     public OrderStatusFragment(String orderStatus) {
         super(R.layout.fragment_order_status);
         this.orderStatus = orderStatus;
@@ -52,6 +53,7 @@ public class OrderStatusFragment extends Fragment {
         return rootView;
     }
 
+    // Initialize Data...
     private void initData() {
         progressBar.setVisibility(View.VISIBLE);
 

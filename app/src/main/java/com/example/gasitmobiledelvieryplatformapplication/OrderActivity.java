@@ -39,11 +39,13 @@ public class OrderActivity extends AppCompatActivity {
                 (Gasoline) savedInstanceState.getSerializable(EXTRA_ORDER_GASOLINE_KEY);
 
         new User().readAuthenticatedUser(new ItemRequestCallback<User>() {
+            // Initialize Ordering Process...
             @Override
             public void onSuccess(User user) {
                 initViewsAndListeners(parcelledGasoline, user);
             }
 
+            // Toast Error Message and Back to Customer Home Interface...
             @Override
             public void onFailure(String error) {
                 onRequestError(error);
@@ -52,21 +54,27 @@ public class OrderActivity extends AppCompatActivity {
         });
     }
 
+    // Back to Previous Customer Home Interface...
     private void goBack(int result) {
         setResult(result);
         finish();
     }
 
+    // Toast Successful Message...
     private void onRequestSuccess(String message) {
         progressBar.setVisibility(View.GONE);
         Toasty.success(this, message, Toasty.LENGTH_SHORT).show();
     }
 
+    // Toast Failed/Error Message...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
         Toasty.error(this, error, Toasty.LENGTH_SHORT).show();
     }
 
+    /**
+     * Ordering Process...
+     **/
     private void initViewsAndListeners(Gasoline parcelledGasoline, User currentUser) {
         progressBar = findViewById(R.id.progressBar);
 
@@ -88,6 +96,9 @@ public class OrderActivity extends AppCompatActivity {
         final Button proceedButton = findViewById(R.id.proceedButton);
         final Button cancelButton = findViewById(R.id.cancelButton);
 
+        /**
+         * Setting Up Gas Details...
+         **/
         Picasso.get()
                 .load(parcelledGasoline.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -127,19 +138,30 @@ public class OrderActivity extends AppCompatActivity {
             subtotalTextView.setText(getString(R.string.gasoline_total,
                     Formatter.formatMoneyForDisplay(qty * parcelledGasoline.getPrice())));
         });
+        /**
+         * Setting Up Gas Details...
+         **/
 
+        // Editable Text Button for Customer Phone and Address...
         phoneNumberEditButton.setOnClickListener(v -> makeEditTextEditable(phoneNumberEditText));
         addressEditButton.setOnClickListener(v -> makeEditTextEditable(addressEditText));
 
+        // Proceed and Cancel Button...
         proceedButton.setOnClickListener(v -> proceedToOrder(parcelledGasoline, currentUser));
         cancelButton.setOnClickListener(v -> goBack(RESULT_CANCELED));
     }
 
+    /**
+     * Ordering Process...
+     **/
+
+    // Enabling Text for Editing...
     private void makeEditTextEditable(EditText editText) {
         editText.setClickable(true);
         editText.setEnabled(true);
     }
 
+    // Order Being Delivered to Retailer (Admin)...
     private void proceedToOrder(Gasoline gasoline, User currentUser) {
         if (FieldUtil.isEmptyEditText("Phone Number", phoneNumberEditText) ||
                 FieldUtil.isEmptyEditText("Address", addressEditText)) {
@@ -160,12 +182,16 @@ public class OrderActivity extends AppCompatActivity {
             // without the user's knowledge.
             currentUser.write(new SimpleRequestCallback() {
                 @Override
-                public void onSuccess(String message) {}
+                public void onSuccess(String message) {
+                }
+
                 @Override
-                public void onFailure(String error) {}
+                public void onFailure(String error) {
+                }
             });
         }
 
+        // Process Order Details...
         int howMany = Integer.parseInt(howManyTextView.getText().toString());
         new Order(Order.STATUS_PENDING, gasoline.getPrice(), howMany, gasoline.getUid(),
                 gasoline.getName(), phoneNumber, address)
@@ -182,6 +208,7 @@ public class OrderActivity extends AppCompatActivity {
                 });
     }
 
+    // Reducing Gasoline Quantity after Ordering Process...
     private void reduceGasolineQuantity(Gasoline gasoline, int howMany) {
         new Gasoline(gasoline.getUid(), gasoline.getStock() - howMany)
                 .write(new SimpleRequestCallback() {

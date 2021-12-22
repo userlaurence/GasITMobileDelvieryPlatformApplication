@@ -307,7 +307,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/arrow_right/baseline_arrow_right_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../Android%20Studio%20SDK/Sdk/icons/material/materialicons/exit_to_app/baseline_exit_to_app_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -317,8 +317,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_arrow_right_24" />
+                            <entry key="color" value="338ba8" />
+                            <entry key="outputName" value="ic_baseline_exit_to_app_24" />
                             <entry key="sourceFile" value="F:\School\Thesis\GasITMobileDelvieryPlatformApplication" />
                           </map>
                         </option>

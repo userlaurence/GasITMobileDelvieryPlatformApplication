@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/white"
-    android:layout_marginVertical="6dp"
     android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gasolineCardContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/panel_background"
+        android:background="@color/colorAccent"
         android:padding="@dimen/appbar_padding">
 
         <ImageView
@@ -36,8 +36,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/card_view_title_text_size"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/gasolineImageView"
             app:layout_constraintBottom_toTopOf="@+id/gasolinePriceTextView"
+            app:layout_constraintStart_toEndOf="@id/gasolineImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -47,8 +47,8 @@
             android:text="@string/gasoline_price"
             android:textColor="@color/white"
             android:textSize="@dimen/card_view_subtitle_text_size"
-            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintBottom_toTopOf="@+id/gasolineStockTextView"
+            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/gasolineNameTextView" />
 
         <TextView
@@ -58,8 +58,8 @@
             android:text="@string/gasoline_stock"
             android:textColor="@color/white"
             android:textSize="@dimen/card_view_information_text_size"
-            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintBottom_toTopOf="@id/gasolineWeightTextView"
+            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/gasolinePriceTextView" />
 
         <TextView
@@ -70,8 +70,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/card_view_information_text_size"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/gasolineNameTextView"
             app:layout_constraintTop_toBottomOf="@id/gasolineStockTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

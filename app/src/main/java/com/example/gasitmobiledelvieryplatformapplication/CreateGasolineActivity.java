@@ -59,23 +59,27 @@ public class CreateGasolineActivity extends AppCompatActivity {
         );
     }
 
+    // Toast Successful Message...
     private void onRequestSuccess(String message) {
         progressBar.setVisibility(View.GONE);
         Toasty.success(this, message, Toasty.LENGTH_SHORT).show();
     }
 
+    // Toast Error Message...
     private void onRequestError(String error) {
         progressBar.setVisibility(View.GONE);
         Toasty.error(this, error, Toasty.LENGTH_SHORT).show();
     }
 
+    // Return to Retailer Home Interface...
     private void goBackToHome() {
         setResult(RESULT_OK);
         finish();
     }
 
+    // Event Initializer and Listeners...
     private void initViewsAndListeners(Gasoline parcelledGasoline) {
-        // Initialize Views.
+        // Initialize Views...
         progressBar = findViewById(R.id.progressBar);
 
         imageView = findViewById(R.id.gasolineImageView);
@@ -85,11 +89,12 @@ public class CreateGasolineActivity extends AppCompatActivity {
         priceEditText = findViewById(R.id.gasolinePriceEditText);
         stockEditText = findViewById(R.id.gasolineStockEditText);
 
+        // Interface Button ID's...
         final ImageButton goBackButton = findViewById(R.id.goBackButton);
         final Button createGasolineButton = findViewById(R.id.createGasolineButton);
         final Button deleteGasolineButton = findViewById(R.id.deleteGasolineButton);
 
-        // Values of parcelled gasoline.
+        // Values of parcelled gasoline...
         if (parcelledGasoline != null) {
             if (parcelledGasoline.getImageUrl() != null) {
                 imageUri = Uri.parse(parcelledGasoline.getImageUrl());
@@ -116,10 +121,10 @@ public class CreateGasolineActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.createGasolineTextView)).setText(createEditStr);
         createGasolineButton.setText(createEditStr);
 
-        // ImageView Listener.
+        // ImageView Listener...
         imageView.setOnClickListener(view -> openFileChooser());
 
-        // Button Listeners.
+        // Button Listeners...
         goBackButton.setOnClickListener(view -> goBackToHome());
         createGasolineButton.setOnClickListener(view -> writeGasoline(parcelledGasoline));
         if (parcelledGasoline != null) {
@@ -128,21 +133,23 @@ public class CreateGasolineActivity extends AppCompatActivity {
         }
     }
 
+    // Deletion of Item Database...
     private void deleteGasoline(Gasoline gasoline) {
-       gasoline.delete(new SimpleRequestCallback() {
-           @Override
-           public void onSuccess(String message) {
-               onRequestSuccess(message);
-               goBackToHome();
-           }
+        gasoline.delete(new SimpleRequestCallback() {
+            @Override
+            public void onSuccess(String message) {
+                onRequestSuccess(message);
+                goBackToHome();
+            }
 
-           @Override
-           public void onFailure(String error) {
-               onRequestError(error);
-           }
-       });
+            @Override
+            public void onFailure(String error) {
+                onRequestError(error);
+            }
+        });
     }
 
+    // Creating Gasoline and Storing to Retailer Warehouse Database...
     private void writeGasoline(Gasoline parcelledGasoline) {
         progressBar.setVisibility(View.VISIBLE);
 
@@ -182,6 +189,7 @@ public class CreateGasolineActivity extends AppCompatActivity {
         });
     }
 
+    // Request Callback for Toasting Messages...
     private SimpleRequestCallback writeCallback() {
         return new SimpleRequestCallback() {
             @Override
@@ -196,6 +204,7 @@ public class CreateGasolineActivity extends AppCompatActivity {
         };
     }
 
+    // Image Picker from the Database...
     private void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");

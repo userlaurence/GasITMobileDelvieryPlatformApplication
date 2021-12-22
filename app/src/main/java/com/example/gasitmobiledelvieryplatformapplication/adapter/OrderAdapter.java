@@ -25,10 +25,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         void onClick(Order order);
     }
 
+    // Order Adapter for Listing Order in an ArrayList...
     public OrderAdapter(List<Order> orderArrayList) {
         this.orderArrayList = orderArrayList;
     }
 
+    // Order Card View Holder for Viewing Items from Customer...
     @NonNull
     @Override
     public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,11 +39,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return new OrderViewHolder(view);
     }
 
+    // Getting Positions from the List of each Item...
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         holder.onBind(orderArrayList.get(position), listener);
     }
 
+    // Counting the Number of Lists of all Items...
     @Override
     public int getItemCount() {
         return orderArrayList.size();
@@ -51,6 +55,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         this.listener = listener;
     }
 
+    // Order View Holder for Recycler Viewer on XML Binding...
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
         TextView orderDateTextView, orderNameTextView, orderComputationTextView, orderTotalTextView,
                 customerPhoneNumberTextView, customerAddressTextView;

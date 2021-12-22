@@ -2,6 +2,7 @@ package com.example.gasitmobiledelvieryplatformapplication.util;
 
 import java.util.Locale;
 
+// Money/Currency Format...
 public class Formatter {
     private static float CENTS_PLACE = 100.0f; // 2 decimal places.
 

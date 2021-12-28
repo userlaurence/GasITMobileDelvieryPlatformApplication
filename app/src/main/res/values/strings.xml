@@ -202,4 +202,7 @@
     <string name="signup_role_retailer">Retailer</string>
     <string name="signup_role_customer">Customer</string>
     <string name="nav_sign_out">Sign Out</string>
+    <string name="title_activity_profile_navigation">profile_navigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

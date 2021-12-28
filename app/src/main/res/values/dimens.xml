@@ -20,4 +20,6 @@
     <dimen name="input_text_size">18sp</dimen>
     <dimen name="input_field_margin">8dp</dimen>
     <dimen name="panel_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 </resources>

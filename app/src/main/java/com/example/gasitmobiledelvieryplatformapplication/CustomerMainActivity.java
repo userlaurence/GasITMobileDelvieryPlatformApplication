@@ -45,6 +45,7 @@ public class CustomerMainActivity extends AppCompatActivity {
             int id = item.getItemId();
             if (id == R.id.navOrder) selectedFragment = new CustomerHomeFragment();
             else if (id == R.id.navMap) selectedFragment = new LocationFragment();
+            /**else if (id == R.id.navRequest) selectedFragment = new CrequestFragment();**/
             else return false;
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,

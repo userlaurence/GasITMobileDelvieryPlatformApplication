@@ -9,4 +9,7 @@
         android:id="@+id/navMap"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/nav_map" />
+    <item
+        android:id="@+id/navRequest"
+        android:title="Order Rquest"/>
 </menu>
